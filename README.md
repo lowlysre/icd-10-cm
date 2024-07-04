@@ -19,4 +19,4 @@ npm install @lowlysre/icd-10-cm
 
 ## Versions
 
-* 0.0.1 - April 1, 2024, ICD-10-CM update
+* v0.x.x - April 1, 2024, ICD-10-CM update
