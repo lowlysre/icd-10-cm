@@ -1,5 +1,5 @@
 {
-  "name": "icd-10-cm",
+  "name": "@lowlysre/icd-10-cm",
   "version": "0.0.1",
   "description": "ICD-10-CM data",
   "main": "dist/index.js",
@@ -12,6 +12,11 @@
   "author": "John McCall",
   "license": "MIT",
   "files": ["/dist", "/data/icd10.min.json"],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public",
+    "tag": "latest"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.15.0",

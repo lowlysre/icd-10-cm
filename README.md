@@ -6,7 +6,14 @@ A data package containing the latest ICD-10 CM codes and descriptions.
 * 🔒 Secure, a zero dependency package with provenance
 * ⚛️ Small, limited to CM (Clinical Modification) data and less than 1MB compressed
 
-## Source
+
+## Install
+
+```shell
+npm install @lowlysre/icd-10-cm
+```
+
+## Data Source
 
 [www.cdc.gov/nchs](https://www.cdc.gov/nchs/icd/icd-10-cm/files.html)
 
