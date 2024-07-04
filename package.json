@@ -2,14 +2,14 @@
   "name": "@lowlysre/icd-10-cm",
   "version": "0.0.1",
   "description": "ICD-10-CM data",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint . --ext .ts",
-    "build": "tsc --declaration",
+    "build": "tsc",
     "parse-icd": "ts-node scripts/parseICD.ts"
   },
-  "types": "./src/ICD10Dictionary.d.ts",
+  "types": "./dist/src/index.d.ts",
   "author": "John McCall",
   "license": "MIT",
   "files": [
@@ -23,6 +23,11 @@
   "repository": {
     "url": "https://github.com/lowlysre/icd-10-cm"
   },
+  "keywords": [
+    "icd",
+    "icd-10",
+    "icd-code"
+  ],
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
@@ -37,5 +42,8 @@
     "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@lowlysre/icd-10-cm": "^0.0.1"
   }
 }

@@ -1,4 +1,4 @@
-import getICD10Description from "../src/index";
+import getICD10Description from "@lowlysre/icd-10-cm";
 
 describe("getICD10Description", () => {
   it("should return the correct description for a valid ICD-10 code", () => {
