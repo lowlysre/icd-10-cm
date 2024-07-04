@@ -20,6 +20,9 @@
     "access": "public",
     "tag": "latest"
   },
+  "repository": {
+    "url": "https://github.com/lowlysre/icd-10-cm"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
