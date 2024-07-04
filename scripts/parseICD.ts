@@ -7,7 +7,7 @@ interface ICD10Dictionary {
 
 const filePath = path.join(__dirname, 'icd10cm.txt');
 const fileContent = fs.readFileSync(filePath, 'utf-8');
-const outputFilePath = path.join(__dirname, 'icd10.min.json');
+const outputFilePath = path.join('./data/icd10.min.json');
 
 // Function to parse the ICD file content
 const parseICDFile = (content: string): ICD10Dictionary => {
