@@ -1,6 +1,6 @@
 # icd-10-cm
 
-A data package containing the latest ICD-10 CM codes and descriptions.
+A data package containing the latest ICD-10 CM codes and descriptions, types included.
 
 * ⚡ Fast, lookups via dictionary of minified json
 * 🔒 Secure, a zero dependency package with provenance
