@@ -13,8 +13,7 @@
   "author": "John McCall",
   "license": "MIT",
   "files": [
-    "/dist",
-    "/data/icd10.min.json"
+    "/dist"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
