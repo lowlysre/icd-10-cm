@@ -1,6 +1,6 @@
 {
   "name": "@lowlysre/icd-10-cm",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ICD-10-CM data",
   "main": "dist/src/index.js",
   "scripts": {
