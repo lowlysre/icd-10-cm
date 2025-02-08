@@ -22,7 +22,7 @@
   "keywords": ["icd","icd-10","icd-code"],
   "devDependencies": {
     "@types/jest": "^29.5.12",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
     "@typescript-eslint/parser": "^7.15.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
