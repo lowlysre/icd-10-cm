@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@v4.2.0
         with:
           node-version: 20
-      - uses: lowlydba/sustainable-npm@v1
-      - run: npm ci --no-audit --no-fund --loglevel=error
+      - uses: lowlydba/sustainable-npm@v1.0.0
+      - run: npm ci
       - run: npm run lint
       - run: npm test
       - run: npm run build
