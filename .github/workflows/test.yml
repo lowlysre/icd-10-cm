@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
-      - uses: actions/setup-node@v4.1.0
+      - uses: actions/setup-node@v4.2.0
         with:
           node-version: 20
-      - run: npm ci --no-audit --no-fund --loglevel=error
+      - uses: lowlydba/sustainable-npm@v1.1.0
+      - run: npm ci
       - run: npm run lint
       - run: npm test
       - run: npm run build
