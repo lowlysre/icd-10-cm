@@ -2,14 +2,23 @@
   "name": "@lowlysre/icd-10-cm",
   "version": "0.0.4",
   "description": "ICD-10-CM data",
-  "main": "dist/src/index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "eslint . --ext .ts",
-    "build": "tsc",
+    "build": "tsup src/index.ts --format esm,cjs --dts --minify --treeshake --clean",
     "parse-icd": "ts-node scripts/parseICD.ts"
   },
-  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
   "author": "John McCall",
   "license": "MIT",
   "files": ["dist"],
@@ -33,6 +42,7 @@
     "prettier": "^3.3.2",
     "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
+    "tsup": "^8.3.0",
     "typescript": "^5.5.3"
   }
 }
