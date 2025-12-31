@@ -63,7 +63,7 @@ describe("data load guard", () => {
 
   it("throws when the dataset is empty", () => {
     jest.isolateModules(() => {
-      jest.doMock("../data/icd10.min.json", () => ({}), { virtual: true });
+      jest.doMock("../data/icd10.min.json", () => ({}));
 
       expect(() => require("../src/index")).toThrow("ICD-10-CM data failed to load");
     });
