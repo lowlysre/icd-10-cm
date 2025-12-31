@@ -65,7 +65,6 @@ describe("data load guard", () => {
     jest.isolateModules(() => {
       jest.doMock("../data/icd10.min.json", () => ({}), { virtual: true });
 
-      // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
       expect(() => require("../src/index")).toThrow("ICD-10-CM data failed to load");
     });
   });
