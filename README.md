@@ -38,4 +38,5 @@ const normalized = normalizeICD10Code(" a00.1 "); // "A001"
 
 ## Versions
 
+* v1.0.0 - Normalized lookups, data load guard, bundled ESM/CJS build, flat ESLint 9 config, 100% tests/coverage
 * v0.x.x - April 1, 2024, ICD-10-CM update
