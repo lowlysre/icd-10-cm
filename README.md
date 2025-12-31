@@ -1,5 +1,9 @@
 # icd-10-cm
 
+[![Test](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml)
+[![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
+
+
 A data package containing the latest ICD-10 CM codes and descriptions, types included!
 
 * ⚡ Fast, lookups via dictionary of minified json
