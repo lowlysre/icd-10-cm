@@ -1,5 +1,6 @@
 # icd-10-cm
 
+![NPM Version](https://img.shields.io/npm/v/%40lowlysre%2Ficd-10-cm)
 [![Test](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml)
 [![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
 
