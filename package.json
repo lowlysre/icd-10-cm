@@ -1,7 +1,7 @@
 {
   "name": "@lowlysre/icd-10-cm",
   "version": "1.0.0",
-  "description": "ICD-10-CM data",
+  "description": "ICD-10-CM (Clinical Modification) data for use in the US healthcare system",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
