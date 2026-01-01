@@ -28,7 +28,7 @@
     "tag": "latest"
   },
   "repository": { "url": "https://github.com/lowlysre/icd-10-cm" },
-  "keywords": ["icd","icd-10","icd-code"],
+  "keywords": ["icd","icd-10","icd-code", "icd10", "icd-10-cm", "medical", "healthcare", "diagnosis", "who"],
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.51.0",
