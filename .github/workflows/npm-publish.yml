@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - uses: lowlydba/sustainable-npm@v1
+      - uses: lowlydba/sustainable-npm@v2
       - run: npm ci
       - run: npm run build
       - run: npm publish --access public
