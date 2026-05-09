@@ -6,7 +6,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "npm run build --silent && node --test tests/**/*.test.cjs",
+    "test": "npm run build --silent && node --test",
     "lint": "eslint . --ext .ts",
     "build": "tsup src/index.ts --format esm,cjs --dts --minify --treeshake --clean",
     "parse-icd": "ts-node scripts/parseICD.ts"
