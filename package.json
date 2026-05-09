@@ -6,7 +6,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest",
+    "test": "npm run build --silent && node --test",
     "lint": "eslint . --ext .ts",
     "build": "tsup src/index.ts --format esm,cjs --dts --minify --treeshake --clean",
     "parse-icd": "ts-node scripts/parseICD.ts"
@@ -30,16 +30,12 @@
   "repository": { "url": "https://github.com/lowlysre/icd-10-cm" },
   "keywords": ["icd","icd-10","icd-code", "icd10", "icd-10-cm", "medical", "healthcare", "diagnosis", "who"],
   "devDependencies": {
-    "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.51.0",
     "@typescript-eslint/parser": "^8.51.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-jest": "^29.12.0",
     "eslint-plugin-prettier": "^5.2.2",
-    "jest": "^30.2.0",
     "prettier": "^3.3.2",
-    "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
     "tsup": "^8.3.0",
     "typescript": "^5.5.3"
