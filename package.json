@@ -8,8 +8,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint . --ext .ts",
-    "build": "tsup src/index.ts --format esm,cjs --dts --minify --treeshake --clean",
-    "parse-icd": "ts-node scripts/parseICD.ts"
+    "build": "tsup src/index.ts --format esm,cjs --minify --treeshake --clean && tsc --emitDeclarationOnly --project tsconfig.json --outDir dist --rootDir src",
+    "parse-icd": "node scripts/parseICD.ts"
   },
   "exports": {
     ".": {
@@ -54,7 +54,6 @@
     "jest": "^30.2.0",
     "prettier": "^3.3.2",
     "ts-jest": "^29.4.9",
-    "ts-node": "^10.9.2",
     "tsup": "^8.3.0",
     "typescript": "^6.0.3"
   }
