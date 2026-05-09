@@ -41,6 +41,10 @@ const normalized = normalizeICD10Code(" a00.1 "); // "A001"
 
 [www.cdc.gov/nchs](https://www.cdc.gov/nchs/icd/icd-10-cm/files.html)
 
+## Development
+
+For regenerating `data/icd10.min.json` via `npm run parse-icd`, use Node.js v22+ (required for `--experimental-strip-types`).
+
 ## Versions
 
 * v1.0.0 - Normalized lookups, data load guard, bundled ESM/CJS build, flat ESLint 9 config, 100% tests/coverage
