@@ -4,7 +4,7 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js', 'json'],
   transform: {
     '^.+\\.ts$': ['ts-jest', {
-      tsconfig: 'tsconfig.json',
+      tsconfig: 'tsconfig.test.json',
     }],
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$',
