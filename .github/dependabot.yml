@@ -9,6 +9,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      actions:
+        patterns:
+          - "actions/*"
+      ts-eslint:
+        patterns:
+          - "@typescript-eslint/*"
 
   - package-ecosystem: "npm"
     directory: "/"
