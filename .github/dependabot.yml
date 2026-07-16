@@ -13,11 +13,14 @@ updates:
       actions:
         patterns:
           - "actions/*"
-      ts-eslint:
-        patterns:
-          - "@typescript-eslint/*"
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      eslint:
+        patterns:
+          - "@typescript-eslint/*"
+          - "eslint"
+          - "eslint-*"
