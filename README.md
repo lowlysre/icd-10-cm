@@ -45,5 +45,10 @@ For regenerating `data/icd10.min.json` via `npm run parse-icd`, use Node.js v22+
 
 ## Versions
 
+- v2.0.0 - TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier
+- v1.1.5 - Dependency and toolchain maintenance
+- v1.1.0 - Migrated tests from Jest to Node's built-in test runner, TypeScript 6 toolchain
+- v1.0.3 - Dependency maintenance, CODEOWNERS
+- v1.0.1 - README badges, sustainable-npm publishing workflow
 - v1.0.0 - Normalized lookups, data load guard, bundled ESM/CJS build, flat ESLint 9 config, 100% tests/coverage
-- v0.x.x - April 1, 2024, ICD-10-CM update
+- v0.0.x - Initial releases, April 1, 2024 ICD-10-CM update
