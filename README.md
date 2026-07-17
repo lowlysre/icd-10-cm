@@ -4,13 +4,11 @@
 [![Test](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml)
 [![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
 
-
 A data package containing the latest ICD-10 CM codes and descriptions, types included!
 
-* ⚡ Fast, lookups via dictionary of minified json
-* 🔒 Secure, a zero dependency package with provenance
-* ⚛️ Small, limited to CM (Clinical Modification) data and less than 1MB compressed
-
+- ⚡ Fast, lookups via dictionary of minified json
+- 🔒 Secure, a zero dependency package with provenance
+- ⚛️ Small, limited to CM (Clinical Modification) data and less than 1MB compressed
 
 ## Install
 
@@ -30,7 +28,7 @@ const description = getICD10Description("A00.0");
 // Handle missing codes by checking for undefined
 const maybeDescription = getICD10Description("Z999");
 if (!maybeDescription) {
-	// fallback logic here
+  // fallback logic here
 }
 
 // You can normalize a code explicitly if you store normalized keys elsewhere
@@ -47,5 +45,5 @@ For regenerating `data/icd10.min.json` via `npm run parse-icd`, use Node.js v22+
 
 ## Versions
 
-* v1.0.0 - Normalized lookups, data load guard, bundled ESM/CJS build, flat ESLint 9 config, 100% tests/coverage
-* v0.x.x - April 1, 2024, ICD-10-CM update
+- v1.0.0 - Normalized lookups, data load guard, bundled ESM/CJS build, flat ESLint 9 config, 100% tests/coverage
+- v0.x.x - April 1, 2024, ICD-10-CM update

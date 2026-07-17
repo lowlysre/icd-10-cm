@@ -11,7 +11,8 @@ const icd10 = require("../data/icd10.min.json");
 describe("getICD10Description", () => {
   it("returns the correct description for a valid ICD-10 code", () => {
     const code = "A000";
-    const expectedDescription = "Cholera due to Vibrio cholerae 01, biovar cholerae";
+    const expectedDescription =
+      "Cholera due to Vibrio cholerae 01, biovar cholerae";
     const description = getICD10Description(code);
     assert.equal(description, expectedDescription);
   });
@@ -24,21 +25,24 @@ describe("getICD10Description", () => {
 
   it("returns the correct description for another valid ICD-10 code", () => {
     const code = "A001";
-    const expectedDescription = "Cholera due to Vibrio cholerae 01, biovar eltor";
+    const expectedDescription =
+      "Cholera due to Vibrio cholerae 01, biovar eltor";
     const description = getICD10Description(code);
     assert.equal(description, expectedDescription);
   });
 
   it("normalizes codes with dots before lookup", () => {
     const codeWithDot = "A00.0";
-    const expectedDescription = "Cholera due to Vibrio cholerae 01, biovar cholerae";
+    const expectedDescription =
+      "Cholera due to Vibrio cholerae 01, biovar cholerae";
     const description = getICD10Description(codeWithDot);
     assert.equal(description, expectedDescription);
   });
 
   it("normalizes lowercase codes", () => {
     const lowercaseCode = "a001";
-    const expectedDescription = "Cholera due to Vibrio cholerae 01, biovar eltor";
+    const expectedDescription =
+      "Cholera due to Vibrio cholerae 01, biovar eltor";
     const description = getICD10Description(lowercaseCode);
     assert.equal(description, expectedDescription);
   });

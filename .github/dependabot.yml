@@ -19,8 +19,7 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      eslint:
+      lint:
         patterns:
-          - "@typescript-eslint/*"
-          - "eslint"
-          - "eslint-*"
+          - "oxlint"
+          - "prettier"
