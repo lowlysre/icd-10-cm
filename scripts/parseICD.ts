@@ -5,7 +5,7 @@ interface ICD10Dictionary {
   [code: string]: string;
 }
 
-const filePath = path.join(__dirname, "icd10cm.txt");
+const filePath = path.join(import.meta.dirname, "icd10cm.txt");
 const fileContent = fs.readFileSync(filePath, "utf-8");
 const outputFilePath = path.join("./data/icd10.min.json");
 
@@ -28,5 +28,7 @@ const parseICDFile = (content: string): ICD10Dictionary => {
 
 // Output
 const icdDictionary = parseICDFile(fileContent);
-console.debug(icdDictionary);
 fs.writeFileSync(outputFilePath, JSON.stringify(icdDictionary), "utf-8");
+console.log(
+  `Wrote ${Object.keys(icdDictionary).length} codes to ${outputFilePath}`,
+);

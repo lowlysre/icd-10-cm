@@ -3,16 +3,38 @@ name: Test
 on:
   pull_request:
   workflow_call:
+
+permissions: {}
+
+concurrency:
+  group: test-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
-    runs-on: ubuntu-latest
+    name: Lint, test, and build
+    runs-on: ubuntu-slim
+    permissions:
+      contents: read # to check out the repository
     steps:
-      - uses: actions/checkout@v7.0.0
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          node-version: 20
-      - uses: lowlydba/sustainable-npm@v3.0.0
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - uses: lowlydba/sustainable-npm@31d51025884f424f58f22e4e6578178bb4e79632 # v3.0.0
       - run: npm ci
       - run: npm run lint
-      - run: npm test
-      - run: npm run build
+      - run: npm run test:coverage
+
+  are-we-good:
+    name: Are we good?
+    runs-on: ubuntu-slim
+    needs: [test]
+    if: always()
+    permissions: {}
+    steps:
+      - uses: lowlydba/are-we-good@4b62765391e357e78d0572113ab8b1c7d6b8d12a # v1.0.4
+        with:
+          jobs: ${{ toJSON(needs) }}

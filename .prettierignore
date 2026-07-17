@@ -1,0 +1,5 @@
+dist/
+coverage/
+data/
+package-lock.json
+scripts/icd10cm.txt
