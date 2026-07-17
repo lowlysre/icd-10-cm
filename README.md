@@ -1,6 +1,6 @@
 # icd-10-cm
 
-<img src="assets/hero.png" alt="icd-10-cm hero" width="853">
+<img src="assets/hero.png" alt="icd-10-cm hero" width="640">
 
 ![NPM Version](https://img.shields.io/npm/v/%40lowlysre%2Ficd-10-cm)
 [![Test](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml)
