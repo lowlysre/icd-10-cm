@@ -58,16 +58,16 @@
 
   <!-- code card -->
   <g>
-    <rect x="700" y="404" width="500" height="152" rx="14" fill="url(#cardbg)" stroke="#2c4a68" stroke-width="1.5"/>
-    <circle cx="730" cy="432" r="6" fill="#f87171"/>
-    <circle cx="752" cy="432" r="6" fill="#fbbf24"/>
-    <circle cx="774" cy="432" r="6" fill="#34d399"/>
+    <rect x="660" y="404" width="572" height="152" rx="14" fill="url(#cardbg)" stroke="#2c4a68" stroke-width="1.5"/>
+    <circle cx="690" cy="432" r="6" fill="#f87171"/>
+    <circle cx="712" cy="432" r="6" fill="#fbbf24"/>
+    <circle cx="734" cy="432" r="6" fill="#34d399"/>
     <g font-family="Consolas, Menlo, monospace" font-size="21">
-      <text x="726" y="482" fill="#e2e8f0">
-        <tspan fill="#c084fc">getICD10Description</tspan><tspan fill="#94a3b8">(</tspan><tspan fill="#86efac">"A00.0"</tspan><tspan fill="#94a3b8">)</tspan>
+      <text x="686" y="482" fill="#e2e8f0">
+        <tspan fill="#c084fc">getICD10Description</tspan><tspan fill="#94a3b8">(</tspan><tspan fill="#86efac">"W61.62XD"</tspan><tspan fill="#94a3b8">)</tspan>
       </text>
-      <text x="726" y="524" fill="#94a3b8">
-        <tspan fill="#64748b">// </tspan><tspan fill="#7dd3fc">"Cholera due to Vibrio cholerae 01..."</tspan>
+      <text x="686" y="524" fill="#94a3b8">
+        <tspan fill="#64748b">// </tspan><tspan fill="#7dd3fc">"Struck by duck, subsequent encounter"</tspan>
       </text>
     </g>
   </g>
