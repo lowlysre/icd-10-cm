@@ -23,7 +23,7 @@ jobs:
   publish-npm:
     name: Publish to npm
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     permissions:
       contents: read # to check out the repository
       id-token: write # for npm trusted publishing (OIDC) and provenance

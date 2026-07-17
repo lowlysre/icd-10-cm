@@ -10,7 +10,8 @@
     "lint": "oxlint . && prettier --check .",
     "prebuild": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\"",
     "build": "tsc --project tsconfig.json",
-    "parse-icd": "node --experimental-strip-types scripts/parseICD.ts"
+    "parse-icd": "node --experimental-strip-types scripts/parseICD.ts",
+    "test:coverage": "npm run build --silent && node --test --experimental-test-coverage --test-coverage-include=\"dist/**\" --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100"
   },
   "exports": {
     ".": {

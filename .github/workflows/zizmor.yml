@@ -14,7 +14,7 @@ concurrency:
 jobs:
   zizmor:
     name: Run zizmor
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     permissions:
       contents: read # to check out the repository
       security-events: write # to upload SARIF results to code scanning
