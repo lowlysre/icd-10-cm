@@ -8,25 +8,36 @@ on:
     types: [created]
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
-  attestations: write
+permissions: {}
+
+concurrency:
+  group: publish-${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   test:
     uses: ./.github/workflows/test.yml
+    permissions:
+      contents: read # to check out the repository
 
   publish-npm:
+    name: Publish to npm
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # to check out the repository
+      id-token: write # for npm trusted publishing (OIDC) and provenance
+      attestations: write # to generate build provenance attestations
     steps:
-      - uses: actions/checkout@v7.0.0
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - uses: lowlydba/sustainable-npm@v3.0.0
+          package-manager-cache: false
+      - uses: lowlydba/sustainable-npm@31d51025884f424f58f22e4e6578178bb4e79632 # v3.0.0
       - run: npm ci
       - run: npm run build
       - run: npm publish --access public
