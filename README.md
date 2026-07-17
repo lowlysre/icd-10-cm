@@ -43,9 +43,19 @@ const normalized = normalizeICD10Code(" a00.1 "); // "A001"
 
 For regenerating `data/icd10.min.json` via `npm run parse-icd`, use Node.js v22+ (required for `--experimental-strip-types`).
 
+### Updating the ICD-10-CM data
+
+CDC/NCHS publishes a new code set annually (effective October 1) and occasionally a mid-year update (effective April 1). Check the [CDC files page](https://www.cdc.gov/nchs/icd/icd-10-cm/files.html) or the [CMS ICD-10 page](https://www.cms.gov/medicare/coding-billing/icd-10-codes) for the latest "Code Descriptions in Tabular Order" archive.
+
+1. Download the latest Code Descriptions in Tabular Order zip
+2. Extract `icd10cm_codes_<year>.txt` and save it as `scripts/icd10cm.txt` (format: code, whitespace, description per line)
+3. Run `npm run parse-icd` to regenerate `data/icd10.min.json`
+4. Run `npm test` and verify the reported code count matches the addenda
+5. Bump the package version and publish
+
 ## Versions
 
-- v2.0.0 - TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
+- v2.0.0 - Data updated to the April 1, 2026 ICD-10-CM release (74,719 codes, from the FY2024 set). TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
 - v1.1.5 - Dependency and toolchain maintenance
 - v1.1.0 - Migrated tests from Jest to Node's built-in test runner, TypeScript 6 toolchain
 - v1.0.3 - Dependency maintenance, CODEOWNERS
