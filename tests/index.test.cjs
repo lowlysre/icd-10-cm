@@ -5,7 +5,7 @@ const {
   default: getICD10Description,
   ensureICD10DatasetLoaded,
   normalizeICD10Code,
-} = require("../dist/index.js");
+} = require("../dist/index.cjs");
 const icd10 = require("../data/icd10.min.json");
 
 describe("getICD10Description", () => {

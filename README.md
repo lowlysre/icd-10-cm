@@ -45,7 +45,7 @@ For regenerating `data/icd10.min.json` via `npm run parse-icd`, use Node.js v22+
 
 ## Versions
 
-- v2.0.0 - TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier
+- v2.0.0 - TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
 - v1.1.5 - Dependency and toolchain maintenance
 - v1.1.0 - Migrated tests from Jest to Node's built-in test runner, TypeScript 6 toolchain
 - v1.0.3 - Dependency maintenance, CODEOWNERS

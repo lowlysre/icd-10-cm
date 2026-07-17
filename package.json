@@ -3,26 +3,33 @@
   "version": "2.0.0",
   "description": "ICD-10-CM (Clinical Modification) data for use in the US healthcare system",
   "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
   "scripts": {
     "test": "npm run build --silent && node --test",
     "lint": "oxlint . && prettier --check .",
-    "build": "tsup src/index.ts --format esm,cjs --minify --treeshake --clean && tsc --emitDeclarationOnly --project tsconfig.json --outDir dist --rootDir src",
+    "prebuild": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\"",
+    "build": "tsc --project tsconfig.json",
     "parse-icd": "node --experimental-strip-types scripts/parseICD.ts"
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "sideEffects": false,
   "author": "John McCall",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "data"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
@@ -44,9 +51,9 @@
     "who"
   ],
   "devDependencies": {
+    "@types/node": "^24.0.0",
     "oxlint": "^1.0.0",
     "prettier": "^3.3.2",
-    "tsup": "^8.3.0",
     "typescript": "^7.0.2"
   }
 }
