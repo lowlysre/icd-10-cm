@@ -1,0 +1,77 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="55%" stop-color="#10243a"/>
+      <stop offset="100%" stop-color="#0b2e3d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="cardbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16283c"/>
+      <stop offset="100%" stop-color="#122236"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- faint grid of dots -->
+  <g fill="#3b82f6" opacity="0.08">
+    <circle cx="80" cy="80" r="3"/><circle cx="160" cy="80" r="3"/><circle cx="240" cy="80" r="3"/>
+    <circle cx="80" cy="160" r="3"/><circle cx="160" cy="160" r="3"/>
+    <circle cx="1200" cy="560" r="3"/><circle cx="1120" cy="560" r="3"/><circle cx="1040" cy="560" r="3"/>
+    <circle cx="1200" cy="480" r="3"/><circle cx="1120" cy="480" r="3"/>
+    <circle cx="1200" cy="80" r="3"/><circle cx="80" cy="560" r="3"/>
+  </g>
+
+  <!-- large translucent medical cross, right background -->
+  <g fill="#2dd4bf" opacity="0.06">
+    <rect x="1010" y="60" width="120" height="360" rx="18"/>
+    <rect x="890" y="180" width="360" height="120" rx="18"/>
+  </g>
+
+  <!-- ECG line across the bottom -->
+  <path d="M0 556 H310 l16 -24 20 48 24 -96 22 132 20 -84 14 24 H640 l16 -24 20 48 24 -96 22 132 20 -84 14 24 H1280"
+        fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- title block -->
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="96" y="200" font-size="88" font-weight="700" fill="#f1f5f9" letter-spacing="-2">icd-10-cm</text>
+    <rect x="100" y="228" width="330" height="7" rx="3.5" fill="url(#accent)"/>
+    <text x="96" y="292" font-size="30" fill="#94a3b8">ICD-10-CM codes and descriptions for Node.js</text>
+
+    <!-- feature pills -->
+    <g font-size="22" font-weight="600">
+      <rect x="96" y="330" width="196" height="48" rx="24" fill="#1e3a5f"/>
+      <text x="194" y="361" fill="#7dd3fc" text-anchor="middle">74,719 codes</text>
+
+      <rect x="308" y="330" width="248" height="48" rx="24" fill="#1e3a5f"/>
+      <text x="432" y="361" fill="#7dd3fc" text-anchor="middle">zero dependencies</text>
+
+      <rect x="572" y="330" width="216" height="48" rx="24" fill="#1e3a5f"/>
+      <text x="680" y="361" fill="#7dd3fc" text-anchor="middle">types included</text>
+    </g>
+  </g>
+
+  <!-- code card -->
+  <g>
+    <rect x="700" y="404" width="500" height="152" rx="14" fill="url(#cardbg)" stroke="#2c4a68" stroke-width="1.5"/>
+    <circle cx="730" cy="432" r="6" fill="#f87171"/>
+    <circle cx="752" cy="432" r="6" fill="#fbbf24"/>
+    <circle cx="774" cy="432" r="6" fill="#34d399"/>
+    <g font-family="Consolas, Menlo, monospace" font-size="21">
+      <text x="726" y="482" fill="#e2e8f0">
+        <tspan fill="#c084fc">getICD10Description</tspan><tspan fill="#94a3b8">(</tspan><tspan fill="#86efac">"A00.0"</tspan><tspan fill="#94a3b8">)</tspan>
+      </text>
+      <text x="726" y="524" fill="#94a3b8">
+        <tspan fill="#64748b">// </tspan><tspan fill="#7dd3fc">"Cholera due to Vibrio cholerae 01..."</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- small footer note -->
+  <text x="96" y="596" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#475569">github.com/lowlysre/icd-10-cm</text>
+</svg>
