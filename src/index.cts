@@ -30,6 +30,12 @@ const loadDataset = (): ICD10Dictionary => {
   return dataset;
 };
 
+// ICD-10-CM codes are 3-7 alphanumeric characters; the decimal point
+// conventionally written after the third character (e.g. "W61.62XD") is
+// display-only formatting and is not part of the code itself. The CMS
+// source file (icd10cm_codes_*.txt) lists codes without it, uppercase,
+// so lookups normalize by stripping dots and uppercasing to match the
+// dataset keys.
 export const normalizeICD10Code = (code: string): string =>
   code.trim().replace(/\./g, "").toUpperCase();
 
