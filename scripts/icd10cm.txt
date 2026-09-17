@@ -1725,6 +1725,8 @@ C7802   Secondary malignant neoplasm of left lung
 C781    Secondary malignant neoplasm of mediastinum
 C782    Secondary malignant neoplasm of pleura
 C7830   Secondary malignant neoplasm of unspecified respiratory organ
+C7831   Secondary malignant neoplasm of larynx
+C7832   Secondary malignant neoplasm of pharynx
 C7839   Secondary malignant neoplasm of other respiratory organs
 C784    Secondary malignant neoplasm of small intestine
 C785    Secondary malignant neoplasm of large intestine and rectum
@@ -1754,6 +1756,7 @@ C7971   Secondary malignant neoplasm of right adrenal gland
 C7972   Secondary malignant neoplasm of left adrenal gland
 C7981   Secondary malignant neoplasm of breast
 C7982   Secondary malignant neoplasm of genital organs
+C7983   Secondary malignant neoplasm of oral cavity
 C7989   Secondary malignant neoplasm of other specified sites
 C799    Secondary malignant neoplasm of unspecified site
 C800    Disseminated malignant neoplasm, unspecified
@@ -2949,7 +2952,8 @@ D6869   Other thrombophilia
 D688    Other specified coagulation defects
 D689    Coagulation defect, unspecified
 D690    Allergic purpura
-D691    Qualitative platelet defects
+D6911   Glanzmann thrombasthenia
+D6919   Other qualitative platelet defects
 D692    Other nonthrombocytopenic purpura
 D693    Immune thrombocytopenic purpura
 D6941   Evans syndrome
@@ -4086,6 +4090,8 @@ E89820  Postprocedural hematoma of an endocrine system organ or structure follow
 E89821  Postprocedural hematoma of an endocrine system organ or structure following other procedure
 E89822  Postprocedural seroma of an endocrine system organ or structure following an endocrine system procedure
 E89823  Postprocedural seroma of an endocrine system organ or structure following other procedure
+E89830  Post bariatric hypoglycemia
+E89838  Other postprocedural hypoglycemia
 E8989   Other postprocedural endocrine and metabolic complications and disorders
 F0150   Vascular dementia, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety
 F01511  Vascular dementia, unspecified severity, with agitation
@@ -4876,6 +4882,7 @@ F641    Dual role transvestism
 F642    Gender identity disorder of childhood
 F648    Other gender identity disorders
 F649    Gender identity disorder, unspecified
+F64A    Gender identity disorder, in remission
 F650    Fetishism
 F651    Transvestic fetishism
 F652    Exhibitionism
@@ -9211,7 +9218,9 @@ I401    Isolated myocarditis
 I408    Other acute myocarditis
 I409    Acute myocarditis, unspecified
 I41     Myocarditis in diseases classified elsewhere
-I420    Dilated cardiomyopathy
+I4200   Dilated cardiomyopathy, unspecified
+I4201   Familial-genetic dilated cardiomyopathy
+I4209   Other dilated cardiomyopathy
 I421    Obstructive hypertrophic cardiomyopathy
 I422    Other hypertrophic cardiomyopathy
 I423    Endomyocardial (eosinophilic) disease
@@ -9219,7 +9228,8 @@ I424    Endocardial fibroelastosis
 I425    Other restrictive cardiomyopathy
 I426    Alcoholic cardiomyopathy
 I427    Cardiomyopathy due to drug and external agent
-I428    Other cardiomyopathies
+I4281   Arrhythmogenic cardiomyopathy
+I4289   Other cardiomyopathies not elsewhere classified
 I429    Cardiomyopathy, unspecified
 I43     Cardiomyopathy in diseases classified elsewhere
 I440    Atrioventricular block, first degree
@@ -9252,6 +9262,7 @@ I4711   Inappropriate sinus tachycardia, so stated
 I4719   Other supraventricular tachycardia
 I4720   Ventricular tachycardia, unspecified
 I4721   Torsades de pointes
+I4722   Catecholaminergic polymorphic ventricular tachycardia [CPVT]
 I4729   Other ventricular tachycardia
 I479    Paroxysmal tachycardia, unspecified
 I480    Paroxysmal atrial fibrillation
@@ -9271,7 +9282,9 @@ I493    Ventricular premature depolarization
 I4940   Unspecified premature depolarization
 I4949   Other premature depolarization
 I495    Sick sinus syndrome
-I498    Other specified cardiac arrhythmias
+I4981   Brugada syndrome
+I4982   Ventricular bigeminy
+I4989   Other specified cardiac arrhythmias not elsewhere classified
 I499    Cardiac arrhythmia, unspecified
 I501    Left ventricular failure, unspecified
 I5020   Unspecified systolic (congestive) heart failure
@@ -10551,6 +10564,11 @@ J348210 External nasal valve collapse, unspecified
 J348211 External nasal valve collapse, static
 J348212 External nasal valve collapse, dynamic
 J34829  Nasal valve collapse, unspecified
+J34830  Odontogenic sinusitis, maxillary sinus
+J34831  Odontogenic sinusitis, ethmoid sinus
+J34832  Odontogenic sinusitis, frontal sinus
+J34833  Odontogenic sinusitis, sphenoid sinus
+J34839  Odontogenic sinusitis, unspecified
 J3489   Other specified disorders of nose and nasal sinuses
 J349    Unspecified disorder of nose and nasal sinuses
 J3501   Chronic tonsillitis
@@ -10598,6 +10616,7 @@ J449    Chronic obstructive pulmonary disease, unspecified
 J4A0    Restrictive allograft syndrome
 J4A8    Other chronic lung allograft dysfunction
 J4A9    Chronic lung allograft dysfunction, unspecified
+J4B     Pulmonary mycetoma
 J4520   Mild intermittent asthma, uncomplicated
 J4521   Mild intermittent asthma with (acute) exacerbation
 J4522   Mild intermittent asthma with status asthmaticus
@@ -11059,6 +11078,7 @@ K2991   Gastroduodenitis, unspecified, with bleeding
 K30     Functional dyspepsia
 K310    Acute dilatation of stomach
 K311    Adult hypertrophic pyloric stenosis
+K31B    Hypertrophic pyloric stenosis, in childhood
 K312    Hourglass stricture and stenosis of stomach
 K313    Pylorospasm, not elsewhere classified
 K314    Gastric diverticulum
@@ -11403,6 +11423,9 @@ K653    Choleperitonitis
 K654    Sclerosing mesenteritis
 K658    Other peritonitis
 K659    Peritonitis, unspecified
+K6A01   Prevesical abscess
+K6A09   Other pelvic abscess
+K6A8    Other diseases of the pelvis, not elsewhere classified
 K660    Peritoneal adhesions (postprocedural) (postinfection)
 K661    Hemoperitoneum
 K668    Other specified disorders of peritoneum
@@ -11448,6 +11471,7 @@ K738    Other chronic hepatitis, not elsewhere classified
 K739    Chronic hepatitis, unspecified
 K7400   Hepatic fibrosis, unspecified
 K7401   Hepatic fibrosis, early fibrosis
+K740A   Hepatic fibrosis, moderate fibrosis
 K7402   Hepatic fibrosis, advanced fibrosis
 K741    Hepatic sclerosis
 K742    Hepatic fibrosis with hepatic sclerosis
@@ -11474,6 +11498,7 @@ K766    Portal hypertension
 K767    Hepatorenal syndrome
 K7681   Hepatopulmonary syndrome
 K7682   Hepatic encephalopathy
+K7683   Intestinal failure-associated liver disease
 K7689   Other specified diseases of liver
 K769    Liver disease, unspecified
 K77     Liver disorders in diseases classified elsewhere
@@ -11662,11 +11687,12 @@ L02226  Furuncle of umbilicus
 L02227  Furuncle of flank
 L02229  Furuncle of trunk, unspecified
 L02231  Carbuncle of abdominal wall
-L02232  Carbuncle of back [any part, except buttock]
+L02232  Carbuncle of back [any part, except buttock and flank]
 L02233  Carbuncle of chest wall
 L02234  Carbuncle of groin
 L02235  Carbuncle of perineum
 L02236  Carbuncle of umbilicus
+L02237  Carbuncle of flank
 L02239  Carbuncle of trunk, unspecified
 L0231   Cutaneous abscess of buttock
 L0232   Furuncle of buttock
@@ -11751,7 +11777,7 @@ L03213  Periorbital cellulitis
 L03221  Cellulitis of neck
 L03222  Acute lymphangitis of neck
 L03311  Cellulitis of abdominal wall
-L03312  Cellulitis of back [any part except buttock]
+L03312  Cellulitis of back [any part except buttock and flank]
 L03313  Cellulitis of chest wall
 L03314  Cellulitis of groin
 L03315  Cellulitis of perineum
@@ -11760,7 +11786,7 @@ L03317  Cellulitis of buttock
 L03319  Cellulitis of trunk, unspecified
 L0331A  Cellulitis of flank
 L03321  Acute lymphangitis of abdominal wall
-L03322  Acute lymphangitis of back [any part except buttock]
+L03322  Acute lymphangitis of back [any part except buttock and flank]
 L03323  Acute lymphangitis of chest wall
 L03324  Acute lymphangitis of groin
 L03325  Acute lymphangitis of perineum
@@ -12876,6 +12902,7 @@ M0289   Other reactive arthropathies, multiple sites
 M029    Reactive arthropathy, unspecified
 M041    Periodic fever syndromes
 M042    Cryopyrin-associated periodic syndromes
+M043    VEXAS syndrome
 M048    Other autoinflammatory syndromes
 M049    Autoinflammatory syndrome, unspecified
 M0500   Felty's syndrome, unspecified site
@@ -16408,6 +16435,9 @@ M67972  Unspecified disorder of synovium and tendon, left ankle and foot
 M67979  Unspecified disorder of synovium and tendon, unspecified ankle and foot
 M6798   Unspecified disorder of synovium and tendon, other site
 M6799   Unspecified disorder of synovium and tendon, multiple sites
+M67A01  Plantar fasciitis, right foot
+M67A02  Plantar fasciitis, left foot
+M67A09  Plantar fasciitis, unspecified foot
 M70031  Crepitant synovitis (acute) (chronic), right wrist
 M70032  Crepitant synovitis (acute) (chronic), left wrist
 M70039  Crepitant synovitis (acute) (chronic), unspecified wrist
@@ -16623,7 +16653,9 @@ M7189   Other specified bursopathies, multiple sites
 M719    Bursopathy, unspecified
 M720    Palmar fascial fibromatosis [Dupuytren]
 M721    Knuckle pads
-M722    Plantar fascial fibromatosis
+M7220   Plantar fascial fibromatosis, unspecified foot
+M7221   Plantar fascial fibromatosis, right foot
+M7222   Plantar fascial fibromatosis, left foot
 M724    Pseudosarcomatous fibromatosis
 M726    Necrotizing fasciitis
 M728    Other fibroblastic disorders
@@ -18365,14 +18397,30 @@ M86679  Other chronic osteomyelitis, unspecified ankle and foot
 M8668   Other chronic osteomyelitis, other site
 M8669   Other chronic osteomyelitis, multiple sites
 M868X0  Other osteomyelitis, multiple sites
-M868X1  Other osteomyelitis, shoulder
-M868X2  Other osteomyelitis, upper arm
-M868X3  Other osteomyelitis, forearm
-M868X4  Other osteomyelitis, hand
-M868X5  Other osteomyelitis, thigh
-M868X6  Other osteomyelitis, lower leg
-M868X7  Other osteomyelitis, ankle and foot
-M868X8  Other osteomyelitis, other site
+M868X11 Other osteomyelitis, right shoulder
+M868X12 Other osteomyelitis, left shoulder
+M868X19 Other osteomyelitis, unspecified shoulder
+M868X21 Other osteomyelitis, right upper arm
+M868X22 Other osteomyelitis, left upper arm
+M868X29 Other osteomyelitis, unspecified upper arm
+M868X31 Other osteomyelitis, right forearm
+M868X32 Other osteomyelitis, left forearm
+M868X39 Other osteomyelitis, unspecified forearm
+M868X41 Other osteomyelitis, right hand
+M868X42 Other osteomyelitis, left hand
+M868X49 Other osteomyelitis, unspecified hand
+M868X51 Other osteomyelitis, right thigh
+M868X52 Other osteomyelitis, left thigh
+M868X59 Other osteomyelitis, unspecified thigh
+M868X61 Other osteomyelitis, right lower leg
+M868X62 Other osteomyelitis, left lower leg
+M868X69 Other osteomyelitis, unspecified lower leg
+M868X71 Other osteomyelitis, right ankle and foot
+M868X72 Other osteomyelitis, left ankle and foot
+M868X79 Other osteomyelitis, unspecified ankle and foot
+M868X80 Other osteomyelitis, skull
+M868X81 Other osteomyelitis, face and sinuses
+M868X89 Other osteomyelitis, other site
 M868X9  Other osteomyelitis, unspecified sites
 M869    Osteomyelitis, unspecified
 M8700   Idiopathic aseptic necrosis of unspecified bone
@@ -20132,6 +20180,8 @@ N99841  Postprocedural hematoma of a genitourinary system organ or structure fol
 N99842  Postprocedural seroma of a genitourinary system organ or structure following a genitourinary system procedure
 N99843  Postprocedural seroma of a genitourinary system organ or structure following other procedure
 N9985   Post endometrial ablation syndrome
+N99860  Intraoperative and postprocedural nipple ischemia
+N99861  Intraoperative and postprocedural nipple necrosis
 N9989   Other postprocedural complications and disorders of genitourinary system
 O0000   Abdominal pregnancy without intrauterine pregnancy
 O0001   Abdominal pregnancy with intrauterine pregnancy
@@ -20141,12 +20191,28 @@ O00109  Unspecified tubal pregnancy without intrauterine pregnancy
 O00111  Right tubal pregnancy with intrauterine pregnancy
 O00112  Left tubal pregnancy with intrauterine pregnancy
 O00119  Unspecified tubal pregnancy with intrauterine pregnancy
+O00121  Right interstitial ectopic pregnancy without intrauterine pregnancy
+O00122  Left interstitial ectopic pregnancy without intrauterine pregnancy
+O00129  Unspecified interstitial ectopic pregnancy without intrauterine pregnancy
+O00131  Right interstitial ectopic pregnancy with intrauterine pregnancy
+O00132  Left interstitial ectopic pregnancy with intrauterine pregnancy
+O00139  Unspecified interstitial ectopic pregnancy with intrauterine pregnancy
 O00201  Right ovarian pregnancy without intrauterine pregnancy
 O00202  Left ovarian pregnancy without intrauterine pregnancy
 O00209  Unspecified ovarian pregnancy without intrauterine pregnancy
 O00211  Right ovarian pregnancy with intrauterine pregnancy
 O00212  Left ovarian pregnancy with intrauterine pregnancy
 O00219  Unspecified ovarian pregnancy with intrauterine pregnancy
+O0031   Cesarean scar ectopic pregnancy without intrauterine pregnancy
+O0032   Cesarean scar ectopic pregnancy with intrauterine pregnancy
+O0041   Cervical ectopic pregnancy without intrauterine pregnancy
+O0042   Cervical ectopic pregnancy with intrauterine pregnancy
+O00511  Right cornual ectopic pregnancy without intrauterine pregnancy
+O00512  Left cornual ectopic pregnancy without intrauterine pregnancy
+O00519  Unspecified cornual ectopic pregnancy without intrauterine pregnancy
+O00521  Right cornual ectopic pregnancy with intrauterine pregnancy
+O00522  Left cornual ectopic pregnancy with intrauterine pregnancy
+O00529  Unspecified cornual ectopic pregnancy with intrauterine pregnancy
 O0080   Other ectopic pregnancy without intrauterine pregnancy
 O0081   Other ectopic pregnancy with intrauterine pregnancy
 O0090   Unspecified ectopic pregnancy without intrauterine pregnancy
@@ -20849,6 +20915,34 @@ O3133X3 Continuing pregnancy after elective fetal reduction of one fetus or more
 O3133X4 Continuing pregnancy after elective fetal reduction of one fetus or more, third trimester, fetus 4
 O3133X5 Continuing pregnancy after elective fetal reduction of one fetus or more, third trimester, fetus 5
 O3133X9 Continuing pregnancy after elective fetal reduction of one fetus or more, third trimester, other fetus
+O3140X0 Continuing pregnancy after vanishing twin syndrome of one fetus or more, unspecified trimester, not applicable or unspecified
+O3140X1 Continuing pregnancy after vanishing twin syndrome of one fetus or more, unspecified trimester, fetus 1
+O3140X2 Continuing pregnancy after vanishing twin syndrome of one fetus or more, unspecified trimester, fetus 2
+O3140X3 Continuing pregnancy after vanishing twin syndrome of one fetus or more, unspecified trimester, fetus 3
+O3140X4 Continuing pregnancy after vanishing twin syndrome of one fetus or more, unspecified trimester, fetus 4
+O3140X5 Continuing pregnancy after vanishing twin syndrome of one fetus or more, unspecified trimester, fetus 5
+O3140X9 Continuing pregnancy after vanishing twin syndrome of one fetus or more, unspecified trimester, other fetus
+O3141X0 Continuing pregnancy after vanishing twin syndrome of one fetus or more, first trimester, not applicable or unspecified
+O3141X1 Continuing pregnancy after vanishing twin syndrome of one fetus or more, first trimester, fetus 1
+O3141X2 Continuing pregnancy after vanishing twin syndrome of one fetus or more, first trimester, fetus 2
+O3141X3 Continuing pregnancy after vanishing twin syndrome of one fetus or more, first trimester, fetus 3
+O3141X4 Continuing pregnancy after vanishing twin syndrome of one fetus or more, first trimester, fetus 4
+O3141X5 Continuing pregnancy after vanishing twin syndrome of one fetus or more, first trimester, fetus 5
+O3141X9 Continuing pregnancy after vanishing twin syndrome of one fetus or more, first trimester, other fetus
+O3142X0 Continuing pregnancy after vanishing twin syndrome of one fetus or more, second trimester, not applicable or unspecified
+O3142X1 Continuing pregnancy after vanishing twin syndrome of one fetus or more, second trimester, fetus 1
+O3142X2 Continuing pregnancy after vanishing twin syndrome of one fetus or more, second trimester, fetus 2
+O3142X3 Continuing pregnancy after vanishing twin syndrome of one fetus or more, second trimester, fetus 3
+O3142X4 Continuing pregnancy after vanishing twin syndrome of one fetus or more, second trimester, fetus 4
+O3142X5 Continuing pregnancy after vanishing twin syndrome of one fetus or more, second trimester, fetus 5
+O3142X9 Continuing pregnancy after vanishing twin syndrome of one fetus or more, second trimester, other fetus
+O3143X0 Continuing pregnancy after vanishing twin syndrome of one fetus or more, third trimester, not applicable or unspecified
+O3143X1 Continuing pregnancy after vanishing twin syndrome of one fetus or more, third trimester, fetus 1
+O3143X2 Continuing pregnancy after vanishing twin syndrome of one fetus or more, third trimester, fetus 2
+O3143X3 Continuing pregnancy after vanishing twin syndrome of one fetus or more, third trimester, fetus 3
+O3143X4 Continuing pregnancy after vanishing twin syndrome of one fetus or more, third trimester, fetus 4
+O3143X5 Continuing pregnancy after vanishing twin syndrome of one fetus or more, third trimester, fetus 5
+O3143X9 Continuing pregnancy after vanishing twin syndrome of one fetus or more, third trimester, other fetus
 O318X10 Other complications specific to multiple gestation, first trimester, not applicable or unspecified
 O318X11 Other complications specific to multiple gestation, first trimester, fetus 1
 O318X12 Other complications specific to multiple gestation, first trimester, fetus 2
@@ -23830,6 +23924,7 @@ Q8786   Kleefstra syndrome
 Q8787   Hao-Fountain Syndrome
 Q8788   CTNNB1 syndrome
 Q8789   Other specified congenital malformation syndromes, not elsewhere classified
+Q87A    Loeys-Dietz syndrome
 Q8901   Asplenia (congenital)
 Q8909   Congenital malformations of spleen
 Q891    Congenital malformations of adrenal gland
@@ -23927,6 +24022,11 @@ QA00149 Neurodevelopmental disorder, related to pathogenic variant in other syna
 QA00151 FOXG1 syndrome
 QA00159 Neurodevelopmental disorder, related to other genes associated with transcription and gene expression
 QA08    Other neurodevelopmental disorders related to pathogenic variants in other specific genes
+QA171   Lynch syndrome
+QA1790  Familial cancer syndrome with pathogenic BRCA1 mutation
+QA1791  Familial cancer syndrome with pathogenic BRCA2 mutation
+QA1792  Li Fraumeni syndrome
+QA1798  Other inherited neoplasm predisposition syndrome of multiple systems
 R000    Tachycardia, unspecified
 R001    Bradycardia, unspecified
 R002    Palpitations
@@ -24501,6 +24601,7 @@ R784    Finding of other drugs of addictive potential in blood
 R785    Finding of other psychotropic drug in blood
 R786    Finding of steroid agent in blood
 R7871   Abnormal lead level in blood
+R7872   Abnormal gadolinium level in blood
 R7879   Finding of abnormal level of heavy metals in blood
 R7881   Bacteremia
 R7889   Finding of other specified substances, not normally found in blood
@@ -28737,9 +28838,6 @@ S233XXS Sprain of ligaments of thoracic spine, sequela
 S2341XA Sprain of ribs, initial encounter
 S2341XD Sprain of ribs, subsequent encounter
 S2341XS Sprain of ribs, sequela
-S23420A Sprain of sternoclavicular (joint) (ligament), initial encounter
-S23420D Sprain of sternoclavicular (joint) (ligament), subsequent encounter
-S23420S Sprain of sternoclavicular (joint) (ligament), sequela
 S23421A Sprain of chondrosternal joint, initial encounter
 S23421D Sprain of chondrosternal joint, subsequent encounter
 S23421S Sprain of chondrosternal joint, sequela
@@ -62149,18 +62247,42 @@ T524X3S Toxic effect of ketones, assault, sequela
 T524X4A Toxic effect of ketones, undetermined, initial encounter
 T524X4D Toxic effect of ketones, undetermined, subsequent encounter
 T524X4S Toxic effect of ketones, undetermined, sequela
-T528X1A Toxic effect of other organic solvents, accidental (unintentional), initial encounter
-T528X1D Toxic effect of other organic solvents, accidental (unintentional), subsequent encounter
-T528X1S Toxic effect of other organic solvents, accidental (unintentional), sequela
-T528X2A Toxic effect of other organic solvents, intentional self-harm, initial encounter
-T528X2D Toxic effect of other organic solvents, intentional self-harm, subsequent encounter
-T528X2S Toxic effect of other organic solvents, intentional self-harm, sequela
-T528X3A Toxic effect of other organic solvents, assault, initial encounter
-T528X3D Toxic effect of other organic solvents, assault, subsequent encounter
-T528X3S Toxic effect of other organic solvents, assault, sequela
-T528X4A Toxic effect of other organic solvents, undetermined, initial encounter
-T528X4D Toxic effect of other organic solvents, undetermined, subsequent encounter
-T528X4S Toxic effect of other organic solvents, undetermined, sequela
+T52811A Toxic effect of alkenes, accidental (unintentional), initial encounter
+T52811D Toxic effect of alkenes, accidental (unintentional), subsequent encounter
+T52811S Toxic effect of alkenes, accidental (unintentional), sequela
+T52812A Toxic effect of alkenes, intentional self-harm, initial encounter
+T52812D Toxic effect of alkenes, intentional self-harm, subsequent encounter
+T52812S Toxic effect of alkenes, intentional self-harm, sequela
+T52813A Toxic effect of alkenes, assault, initial encounter
+T52813D Toxic effect of alkenes, assault, subsequent encounter
+T52813S Toxic effect of alkenes, assault, sequela
+T52814A Toxic effect of alkenes, undetermined, initial encounter
+T52814D Toxic effect of alkenes, undetermined, subsequent encounter
+T52814S Toxic effect of alkenes, undetermined, sequela
+T52821A Toxic effect of cycloparaffins, accidental (unintentional), initial encounter
+T52821D Toxic effect of cycloparaffins, accidental (unintentional), subsequent encounter
+T52821S Toxic effect of cycloparaffins, accidental (unintentional), sequela
+T52822A Toxic effect of cycloparaffins, intentional self-harm, initial encounter
+T52822D Toxic effect of cycloparaffins, intentional self-harm, subsequent encounter
+T52822S Toxic effect of cycloparaffins, intentional self-harm, sequela
+T52823A Toxic effect of cycloparaffins, assault, initial encounter
+T52823D Toxic effect of cycloparaffins, assault, subsequent encounter
+T52823S Toxic effect of cycloparaffins, assault, sequela
+T52824A Toxic effect of cycloparaffins, undetermined, initial encounter
+T52824D Toxic effect of cycloparaffins, undetermined, subsequent encounter
+T52824S Toxic effect of cycloparaffins, undetermined, sequela
+T52891A Toxic effect of other organic solvents, accidental (unintentional), initial encounter
+T52891D Toxic effect of other organic solvents, accidental (unintentional), subsequent encounter
+T52891S Toxic effect of other organic solvents, accidental (unintentional), sequela
+T52892A Toxic effect of other organic solvents, intentional self-harm, initial encounter
+T52892D Toxic effect of other organic solvents, intentional self-harm, subsequent encounter
+T52892S Toxic effect of other organic solvents, intentional self-harm, sequela
+T52893A Toxic effect of other organic solvents, assault, initial encounter
+T52893D Toxic effect of other organic solvents, assault, subsequent encounter
+T52893S Toxic effect of other organic solvents, assault, sequela
+T52894A Toxic effect of other organic solvents, undetermined, initial encounter
+T52894D Toxic effect of other organic solvents, undetermined, subsequent encounter
+T52894S Toxic effect of other organic solvents, undetermined, sequela
 T5291XA Toxic effect of unspecified organic solvent, accidental (unintentional), initial encounter
 T5291XD Toxic effect of unspecified organic solvent, accidental (unintentional), subsequent encounter
 T5291XS Toxic effect of unspecified organic solvent, accidental (unintentional), sequela
@@ -62749,6 +62871,18 @@ T59813S Toxic effect of smoke, assault, sequela
 T59814A Toxic effect of smoke, undetermined, initial encounter
 T59814D Toxic effect of smoke, undetermined, subsequent encounter
 T59814S Toxic effect of smoke, undetermined, sequela
+T59821A Toxic effect of hexamethylene diisocyanate, accidental (unintentional), initial encounter
+T59821D Toxic effect of hexamethylene diisocyanate, accidental (unintentional), subsequent encounter
+T59821S Toxic effect of hexamethylene diisocyanate, accidental (unintentional), sequela
+T59822A Toxic effect of hexamethylene diisocyanate, intentional self-harm, initial encounter
+T59822D Toxic effect of hexamethylene diisocyanate, intentional self-harm, subsequent encounter
+T59822S Toxic effect of hexamethylene diisocyanate, intentional self-harm, sequela
+T59823A Toxic effect of hexamethylene diisocyanate, assault, initial encounter
+T59823D Toxic effect of hexamethylene diisocyanate, assault, subsequent encounter
+T59823S Toxic effect of hexamethylene diisocyanate, assault, sequela
+T59824A Toxic effect of hexamethylene diisocyanate, undetermined, initial encounter
+T59824D Toxic effect of hexamethylene diisocyanate, undetermined, subsequent encounter
+T59824S Toxic effect of hexamethylene diisocyanate, undetermined, sequela
 T59891A Toxic effect of other specified gases, fumes and vapors, accidental (unintentional), initial encounter
 T59891D Toxic effect of other specified gases, fumes and vapors, accidental (unintentional), subsequent encounter
 T59891S Toxic effect of other specified gases, fumes and vapors, accidental (unintentional), sequela
@@ -63625,6 +63759,18 @@ T65843S Toxic effect of xylazine, assault, sequela
 T65844A Toxic effect of xylazine, undetermined, initial encounter
 T65844D Toxic effect of xylazine, undetermined, subsequent encounter
 T65844S Toxic effect of xylazine, undetermined, sequela
+T65851A Toxic effect of medetomidine, accidental (unintentional), initial encounter
+T65851D Toxic effect of medetomidine, accidental (unintentional), subsequent encounter
+T65851S Toxic effect of medetomidine, accidental (unintentional), sequela
+T65852A Toxic effect of medetomidine, intentional self-harm, initial encounter
+T65852D Toxic effect of medetomidine, intentional self-harm, subsequent encounter
+T65852S Toxic effect of medetomidine, intentional self-harm, sequela
+T65853A Toxic effect of medetomidine, assault, initial encounter
+T65853D Toxic effect of medetomidine, assault, subsequent encounter
+T65853S Toxic effect of medetomidine, assault, sequela
+T65854A Toxic effect of medetomidine, undetermined, initial encounter
+T65854D Toxic effect of medetomidine, undetermined, subsequent encounter
+T65854S Toxic effect of medetomidine, undetermined, sequela
 T65891A Toxic effect of other specified substances, accidental (unintentional), initial encounter
 T65891D Toxic effect of other specified substances, accidental (unintentional), subsequent encounter
 T65891S Toxic effect of other specified substances, accidental (unintentional), sequela
@@ -73582,7 +73728,7 @@ Z289    Immunization not carried out for unspecified reason
 Z2911   Encounter for prophylactic immunotherapy for respiratory syncytial virus (RSV)
 Z2912   Encounter for prophylactic antivenin
 Z2913   Encounter for prophylactic Rho(D) immune globulin
-Z2914   Encounter for prophylactic rabies immune globin
+Z2914   Encounter for prophylactic rabies immune globulin
 Z293    Encounter for prophylactic fluoride administration
 Z2981   Encounter for HIV pre-exposure prophylaxis
 Z2989   Encounter for other specified prophylactic measures
@@ -74043,7 +74189,8 @@ Z67A1   Duffy null
 Z67A2   Duffy a positive
 Z67A3   Duffy b positive
 Z67A4   Duffy a and b positive
-Z681    Body mass index [BMI] 19.9 or less, adult
+Z6818   Body mass index [BMI] 18.4 or less, adult
+Z6819   Body mass index [BMI] 18.5-19.9, adult
 Z6820   Body mass index [BMI] 20.0-20.9, adult
 Z6821   Body mass index [BMI] 21.0-21.9, adult
 Z6822   Body mass index [BMI] 22.0-22.9, adult
@@ -74163,6 +74310,7 @@ Z7689   Persons encountering health services in other specified circumstances
 Z77010  Contact with and (suspected) exposure to arsenic
 Z77011  Contact with and (suspected) exposure to lead
 Z77012  Contact with and (suspected) exposure to uranium
+Z77013  Contact with and (suspected) exposure to gadolinium
 Z77018  Contact with and (suspected) exposure to other hazardous metals
 Z77020  Contact with and (suspected) exposure to aromatic amines
 Z77021  Contact with and (suspected) exposure to benzene
@@ -74182,7 +74330,13 @@ Z7721   Contact with and (suspected) exposure to potentially hazardous body flui
 Z7722   Contact with and (suspected) exposure to environmental tobacco smoke (acute) (chronic)
 Z7729   Contact with and (suspected) exposure to other hazardous substances
 Z7731   Contact with and (suspected) exposure to Gulf War theater
+Z7732   Contact with and (suspected) exposure to burn pits in war theater
+Z7733   Contact with and (suspected) exposure to Agent Orange
 Z7739   Contact with and (suspected) exposure to other war theater
+Z7740   Contact with and (suspected) exposure to unspecified blast overpressure
+Z7741   Contact with and (suspected) exposure to low-level blast overpressure
+Z7742   Contact with and (suspected) exposure to high-level blast overpressure
+Z7749   Contact with and (suspected) exposure to other blast overpressure
 Z779    Other contact with and (suspected) exposures hazardous to health
 Z780    Asymptomatic menopausal state
 Z781    Physical restraint status
@@ -74366,6 +74520,7 @@ Z8613   Personal history of malaria
 Z8614   Personal history of Methicillin resistant Staphylococcus aureus infection
 Z8615   Personal history of latent tuberculosis infection
 Z8616   Personal history of COVID-19
+Z8617   Personal history of Clostridioides difficile infection
 Z8619   Personal history of other infectious and parasitic diseases
 Z862    Personal history of diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
 Z8631   Personal history of diabetic foot ulcer
@@ -74426,9 +74581,14 @@ Z8781   Personal history of (healed) traumatic fracture
 Z87820  Personal history of traumatic brain injury
 Z87821  Personal history of retained foreign body fully removed
 Z87828  Personal history of other (healed) physical injury and trauma
-Z87890  Personal history of sex reassignment
+Z878901 Personal history of social gender transition
+Z878902 Personal history of medical gender transition
+Z878903 Personal history of surgical gender transition
+Z878904 Personal history of intersex surgery
+Z878909 Personal history of unspecified gender transition
 Z87891  Personal history of nicotine dependence
 Z87892  Personal history of anaphylaxis
+Z87893  Personal history of gender detransition
 Z87898  Personal history of other specified conditions
 Z880    Allergy status to penicillin
 Z881    Allergy status to other antibiotic agents

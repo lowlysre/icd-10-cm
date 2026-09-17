@@ -4,7 +4,7 @@
   <img src="assets/hero.png" alt="icd-10-cm hero" width="640">
 </p>
 
-![NPM Version](https://img.shields.io/npm/v/%40lowlysre%2Ficd-10-cm)
+[![NPM Version](https://img.shields.io/npm/v/%40lowlysre%2Ficd-10-cm)](https://www.npmjs.com/package/@lowlysre/icd-10-cm)
 [![Test](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml)
 [![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
 [![immutable releases](https://img.shields.io/badge/immutable%20releases-active-green?logo=github)](https://github.com/lowlysre/icd-10-cm/releases)
@@ -61,6 +61,7 @@ CDC/NCHS publishes a new code set annually (effective October 1) and occasionall
 
 ## Versions
 
+- v3.0.0 - Data updated to the October 1, 2026 ICD-10-CM release (74,879 codes, from the FY2027 set)
 - v2.0.0 - Data updated to the April 1, 2026 ICD-10-CM release (74,719 codes, from the FY2024 set). TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
 - v1.1.5 - Dependency and toolchain maintenance
 - v1.1.0 - Migrated tests from Jest to Node's built-in test runner, TypeScript 6 toolchain
