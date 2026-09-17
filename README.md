@@ -4,7 +4,7 @@
   <img src="assets/hero.png" alt="icd-10-cm hero" width="640">
 </p>
 
-![NPM Version](https://img.shields.io/npm/v/%40lowlysre%2Ficd-10-cm)
+[![NPM Version](https://img.shields.io/npm/v/%40lowlysre%2Ficd-10-cm)](https://www.npmjs.com/package/@lowlysre/icd-10-cm)
 [![Test](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml)
 [![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
 [![immutable releases](https://img.shields.io/badge/immutable%20releases-active-green?logo=github)](https://github.com/lowlysre/icd-10-cm/releases)
