@@ -61,6 +61,7 @@ CDC/NCHS publishes a new code set annually (effective October 1) and occasionall
 
 ## Versions
 
+- v3.0.0 - Data updated to the October 1, 2026 ICD-10-CM release (74,879 codes, from the FY2027 set)
 - v2.0.0 - Data updated to the April 1, 2026 ICD-10-CM release (74,719 codes, from the FY2024 set). TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
 - v1.1.5 - Dependency and toolchain maintenance
 - v1.1.0 - Migrated tests from Jest to Node's built-in test runner, TypeScript 6 toolchain
