@@ -1,0 +1,28 @@
+name: Data issue
+description: A code or description is missing, wrong, or out of date
+labels: [data]
+body:
+  - type: markdown
+    attributes:
+      value: Check `ICD10_CM_RELEASE` to see which release your installed version bundles. Codes from a newer release ship in the next major version.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "3.0.0"
+    validations:
+      required: true
+  - type: input
+    id: code
+    attributes:
+      label: ICD-10-CM code
+      placeholder: "A00.0"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What's wrong
+      description: Include the expected description and a link to the CDC or CMS source that shows it.
+    validations:
+      required: true

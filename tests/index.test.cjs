@@ -6,6 +6,7 @@ const {
   ensureICD10DatasetLoaded,
   normalizeICD10Code,
   getICD10Description: namedGetICD10Description,
+  ICD10_CM_RELEASE,
 } = require("../dist/index.cjs");
 const icd10 = require("../data/icd10.min.json");
 
@@ -83,6 +84,21 @@ describe("normalizeICD10Code", () => {
 describe("data integrity", () => {
   it("loads a non-empty dataset", () => {
     assert.ok(Object.keys(icd10).length > 0);
+  });
+
+  it("matches the code count declared in ICD10_CM_RELEASE", () => {
+    assert.equal(Object.keys(icd10).length, ICD10_CM_RELEASE.codeCount);
+  });
+});
+
+describe("ICD10_CM_RELEASE", () => {
+  it("describes the bundled release", () => {
+    assert.equal(ICD10_CM_RELEASE.fiscalYear, 2027);
+    assert.equal(ICD10_CM_RELEASE.effectiveDate, "2026-10-01");
+  });
+
+  it("is frozen", () => {
+    assert.ok(Object.isFrozen(ICD10_CM_RELEASE));
   });
 });
 

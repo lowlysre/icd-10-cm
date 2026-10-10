@@ -3,6 +3,18 @@ import { join } from "node:path";
 
 export type ICD10Dictionary = { [code: string]: string };
 
+export type ICD10CMRelease = {
+  readonly fiscalYear: number;
+  readonly effectiveDate: string;
+  readonly codeCount: number;
+};
+
+export const ICD10_CM_RELEASE: ICD10CMRelease = Object.freeze({
+  fiscalYear: 2027,
+  effectiveDate: "2026-10-01",
+  codeCount: 74879,
+});
+
 export const ensureICD10DatasetLoaded = (
   data: ICD10Dictionary,
 ): ICD10Dictionary => {
