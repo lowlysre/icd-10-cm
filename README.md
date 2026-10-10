@@ -102,6 +102,7 @@ See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for setup and the yearly data upd
 
 ## Versions
 
+- v3.1.0 - `ICD10_CM_RELEASE` export with the bundled fiscal year, effective date, and code count. Node.js 22+ declared in `engines`, `package.json` exported, expanded npm keywords. API, CDN, and versioning docs, plus contributing and security guides
 - v3.0.0 - Data updated to the October 1, 2026 ICD-10-CM release (74,879 codes, from the FY2027 set)
 - v2.0.0 - Data updated to the April 1, 2026 ICD-10-CM release (74,719 codes, from the FY2024 set). TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
 - v1.1.5 - Dependency and toolchain maintenance
