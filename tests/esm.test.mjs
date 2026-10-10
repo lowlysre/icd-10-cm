@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import getICD10Description, {
   normalizeICD10Code,
   ensureICD10DatasetLoaded,
+  ICD10_CM_RELEASE,
 } from "../dist/index.mjs";
 
 describe("ESM entry point", () => {
@@ -18,5 +19,6 @@ describe("ESM entry point", () => {
   it("exposes named exports", () => {
     assert.equal(normalizeICD10Code(" a00.1 "), "A001");
     assert.equal(typeof ensureICD10DatasetLoaded, "function");
+    assert.equal(ICD10_CM_RELEASE.fiscalYear, 2027);
   });
 });

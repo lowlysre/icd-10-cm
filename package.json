@@ -1,7 +1,7 @@
 {
   "name": "@lowlysre/icd-10-cm",
-  "version": "3.0.0",
-  "description": "ICD-10-CM (Clinical Modification) data for use in the US healthcare system",
+  "version": "3.1.0",
+  "description": "FY2027 ICD-10-CM diagnosis codes and descriptions (CDC/NCHS, effective October 1, 2026) with TypeScript types and zero dependencies",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
@@ -23,9 +23,13 @@
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
-    }
+    },
+    "./package.json": "./package.json"
   },
   "sideEffects": false,
+  "engines": {
+    "node": ">=22"
+  },
   "author": "John McCall",
   "license": "MIT",
   "files": [
@@ -38,7 +42,12 @@
     "tag": "latest"
   },
   "repository": {
-    "url": "https://github.com/lowlysre/icd-10-cm"
+    "type": "git",
+    "url": "git+https://github.com/lowlysre/icd-10-cm.git"
+  },
+  "homepage": "https://github.com/lowlysre/icd-10-cm#readme",
+  "bugs": {
+    "url": "https://github.com/lowlysre/icd-10-cm/issues"
   },
   "keywords": [
     "icd",
@@ -46,10 +55,21 @@
     "icd-code",
     "icd10",
     "icd-10-cm",
-    "medical",
-    "healthcare",
+    "icd10cm",
+    "icd-10-cm-codes",
     "diagnosis",
-    "who"
+    "diagnosis-codes",
+    "medical",
+    "medical-coding",
+    "medical-billing",
+    "healthcare",
+    "health-data",
+    "cdc",
+    "nchs",
+    "cms",
+    "fhir",
+    "fy2027",
+    "typescript"
   ],
   "devDependencies": {
     "@types/node": "^26.1.1",

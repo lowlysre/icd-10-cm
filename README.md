@@ -6,10 +6,11 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40lowlysre%2Ficd-10-cm)](https://www.npmjs.com/package/@lowlysre/icd-10-cm)
 [![downloads](https://img.shields.io/npm/dm/@lowlysre/icd-10-cm)](https://npm-stat.com/charts.html?package=@lowlysre/icd-10-cm)
+[![jsDelivr](https://data.jsdelivr.com/v1/stats/packages/npm/@lowlysre/icd-10-cm/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@lowlysre/icd-10-cm)
 [![Test](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml)
 [![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
 
-A data package containing the latest ICD-10 CM codes and descriptions, types included!
+A data package containing the FY2027 ICD-10-CM diagnosis codes and descriptions (effective October 1, 2026), types included!
 
 - ⚡ Fast, lookups via dictionary of minified json
 - 🔒 Secure, a zero dependency package with provenance
@@ -41,26 +42,67 @@ if (!maybeDescription) {
 const normalized = normalizeICD10Code(" a00.1 "); // "A001"
 ```
 
+CommonJS works too:
+
+```js
+const { getICD10Description } = require("@lowlysre/icd-10-cm");
+```
+
+### Checking which release is bundled
+
+`ICD10_CM_RELEASE` describes the code set shipped in the installed version, so an app can log it, show it, or fail fast when it expects a different year:
+
+```ts
+import { ICD10_CM_RELEASE } from "@lowlysre/icd-10-cm";
+
+ICD10_CM_RELEASE.fiscalYear; // 2027
+ICD10_CM_RELEASE.effectiveDate; // "2026-10-01"
+ICD10_CM_RELEASE.codeCount; // 74879
+```
+
+## API
+
+- `getICD10Description(code)` (also the default export) returns the description for a code, or `undefined` when the code isn't in the bundled release. Input is normalized first.
+- `normalizeICD10Code(code)` trims whitespace, strips dots, and uppercases, matching the dataset keys.
+- `ICD10_CM_RELEASE` is a frozen object with the bundled release's `fiscalYear`, `effectiveDate`, and `codeCount`.
+- `ensureICD10DatasetLoaded(data)` returns `data`, or throws when it's empty or missing.
+- Types: `ICD10Dictionary`, `ICD10CMRelease`.
+
+The package supports Node.js 22 or later.
+
+## Raw data via CDN
+
+The dataset is a flat JSON object of normalized code to description. Browsers and other runtimes can fetch it straight from jsDelivr without installing anything:
+
+```js
+const res = await fetch(
+  "https://cdn.jsdelivr.net/npm/@lowlysre/icd-10-cm@3/data/icd10.min.json",
+);
+const codes = await res.json();
+codes["A000"]; // "Cholera due to Vibrio cholerae 01, biovar cholerae"
+```
+
+Pin the major version in the URL so the code set only changes when you choose to upgrade.
+
+## Versioning
+
+Each new ICD-10-CM release (the annual October 1 update, and any April 1 update) ships as a new major version. A release can delete or redefine codes, so a caret range like `^3.0.0` never silently changes the code set underneath an app. Upgrade the major version deliberately to pick up a new year.
+
+Minor and patch versions contain code and tooling changes only; the data stays the same.
+
 ## Data Source
 
-[www.cdc.gov/nchs](https://www.cdc.gov/nchs/icd/icd-10-cm/files.html)
+ICD-10-CM is maintained by the CDC's National Center for Health Statistics (NCHS), which publishes the code files for free public use: [ICD-10-CM files](https://www.cdc.gov/nchs/icd/icd-10-cm/files.html). The MIT license covers this package's code.
 
-## Development
+This package is not affiliated with or endorsed by the CDC, NCHS, or CMS.
 
-For regenerating `data/icd10.min.json` via `npm run parse-icd`, use Node.js v22+ (required for `--experimental-strip-types`).
+## Contributing
 
-### Updating the ICD-10-CM data
-
-CDC/NCHS publishes a new code set annually (effective October 1) and occasionally a mid-year update (effective April 1). Check the [CDC files page](https://www.cdc.gov/nchs/icd/icd-10-cm/files.html) or the [CMS ICD-10 page](https://www.cms.gov/medicare/coding-billing/icd-10-codes) for the latest "Code Descriptions in Tabular Order" archive.
-
-1. Download the latest Code Descriptions in Tabular Order zip
-2. Extract `icd10cm_codes_<year>.txt` and save it as `scripts/icd10cm.txt` (format: code, whitespace, description per line)
-3. Run `npm run parse-icd` to regenerate `data/icd10.min.json`
-4. Run `npm test` and verify the reported code count matches the addenda
-5. Bump the package version and publish
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for setup and the yearly data update steps.
 
 ## Versions
 
+- v3.1.0 - `ICD10_CM_RELEASE` export with the bundled fiscal year, effective date, and code count. Node.js 22+ declared in `engines`, `package.json` exported, expanded npm keywords. API, CDN, and versioning docs, plus contributing and security guides
 - v3.0.0 - Data updated to the October 1, 2026 ICD-10-CM release (74,879 codes, from the FY2027 set)
 - v2.0.0 - Data updated to the April 1, 2026 ICD-10-CM release (74,719 codes, from the FY2024 set). TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
 - v1.1.5 - Dependency and toolchain maintenance
