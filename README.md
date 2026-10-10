@@ -68,7 +68,7 @@ ICD10_CM_RELEASE.codeCount; // 74879
 - `ensureICD10DatasetLoaded(data)` returns `data`, or throws when it's empty or missing.
 - Types: `ICD10Dictionary`, `ICD10CMRelease`.
 
-The lookup functions read the dataset from disk, so they run in Node.js 22 or later.
+The package supports Node.js 22 or later.
 
 ## Raw data via CDN
 
