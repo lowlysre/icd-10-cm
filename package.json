@@ -1,6 +1,6 @@
 {
   "name": "@lowlysre/icd-10-cm",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "FY2027 ICD-10-CM diagnosis codes and descriptions (CDC/NCHS, effective October 1, 2026) with TypeScript types and zero dependencies",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -68,6 +68,9 @@
     "nchs",
     "cms",
     "fhir",
+    "ai",
+    "llm",
+    "offline",
     "fy2027",
     "typescript"
   ],
