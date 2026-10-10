@@ -18,27 +18,6 @@ A data package containing the FY2027 ICD-10-CM diagnosis codes and descriptions 
 - 🔏 Immutable, GitHub releases are locked and cannot be altered or replaced after publishing
 - 🔌 Offline, the full code set ships inside the package: no API keys, no rate limits, and no calls to government servers at runtime. It runs inside closed-loop healthcare systems that block outbound traffic or require a vendor review for every external API
 
-## Using with AI
-
-- Grounding AI output. Language models describe ICD-10-CM codes from memory, so they get laterality and severity wrong and invent descriptions for codes that don't exist. Check each model-produced code against the official set before showing or storing it.
-- Agent tools. Expose `getICD10Description` as a tool or function call, so an agent reads the official description instead of recalling one.
-
-```ts
-import { getICD10Description } from "@lowlysre/icd-10-cm";
-
-const modelCodes = ["E11.9", "H40.1131", "E11.99"];
-
-const checked = modelCodes.map((code) => ({
-  code,
-  description: getICD10Description(code) ?? null,
-}));
-// [
-//   { code: "E11.9", description: "Type 2 diabetes mellitus without complications" },
-//   { code: "H40.1131", description: "Primary open-angle glaucoma, bilateral, mild stage" },
-//   { code: "E11.99", description: null }, // not a real code
-// ]
-```
-
 ## Install
 
 ```shell
@@ -80,6 +59,27 @@ import { ICD10_CM_RELEASE } from "@lowlysre/icd-10-cm";
 ICD10_CM_RELEASE.fiscalYear; // 2027
 ICD10_CM_RELEASE.effectiveDate; // "2026-10-01"
 ICD10_CM_RELEASE.codeCount; // 74879
+```
+
+### Using with AI
+
+- Grounding AI output. Language models describe ICD-10-CM codes from memory, so they get laterality and severity wrong and invent descriptions for codes that don't exist. Check each model-produced code against the official set before showing or storing it.
+- Agent tools. Expose `getICD10Description` as a tool or function call, so an agent reads the official description instead of recalling one.
+
+```ts
+import { getICD10Description } from "@lowlysre/icd-10-cm";
+
+const modelCodes = ["E11.9", "H40.1131", "E11.99"];
+
+const checked = modelCodes.map((code) => ({
+  code,
+  description: getICD10Description(code) ?? null,
+}));
+// [
+//   { code: "E11.9", description: "Type 2 diabetes mellitus without complications" },
+//   { code: "H40.1131", description: "Primary open-angle glaucoma, bilateral, mild stage" },
+//   { code: "E11.99", description: null }, // not a real code
+// ]
 ```
 
 ## API
