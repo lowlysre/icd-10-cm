@@ -7,20 +7,38 @@ interface ICD10Dictionary {
 
 const filePath = path.join(import.meta.dirname, "icd10cm.txt");
 const fileContent = fs.readFileSync(filePath, "utf-8");
-const outputFilePath = path.join("./data/icd10.min.json");
+const outputFilePath = path.join(
+  import.meta.dirname,
+  "..",
+  "data",
+  "icd10.min.json",
+);
 
-// Function to parse the ICD file content
+const codePattern = /^[A-Z][0-9A-Z]{2,6}$/;
+const linePattern = /^(\S+)\s+(\S.*?)\s*$/;
+
 const parseICDFile = (content: string): ICD10Dictionary => {
-  const lines = content.split("\n"); // Split content into lines
   const dictionary: ICD10Dictionary = {};
 
-  for (const line of lines) {
-    const [code, ...descriptionParts] = line.split(/\s+/); // Split by whitespace (tab or spaces)
-    const description = descriptionParts.join(" "); // Rejoin the description parts
-
-    if (code && description) {
-      dictionary[code] = description.trim(); // Add to dictionary
+  for (const [index, line] of content.split(/\r?\n/).entries()) {
+    if (line.trim() === "") {
+      continue;
     }
+
+    const match = linePattern.exec(line);
+    const [, code, description] = match ?? [];
+
+    if (!code || !description || !codePattern.test(code)) {
+      throw new Error(
+        `Line ${index + 1} is not "<code> <description>": ${line}`,
+      );
+    }
+
+    if (Object.hasOwn(dictionary, code)) {
+      throw new Error(`Line ${index + 1} repeats code ${code}`);
+    }
+
+    dictionary[code] = description;
   }
 
   return dictionary;

@@ -5,6 +5,7 @@ const {
   default: getICD10Description,
   ensureICD10DatasetLoaded,
   normalizeICD10Code,
+  hasICD10Code,
   getICD10Description: namedGetICD10Description,
   ICD10_CM_RELEASE,
 } = require("../dist/index.cjs");
@@ -64,6 +65,37 @@ describe("getICD10Description", () => {
     assert.equal(first, second);
     assert.equal(typeof first, "string");
   });
+
+  it("returns undefined for non-string input instead of throwing", () => {
+    for (const value of [null, undefined, 123, {}, ["A000"]]) {
+      assert.equal(getICD10Description(value), undefined);
+    }
+  });
+
+  it("returns undefined for category headers that have child codes", () => {
+    assert.equal(getICD10Description("A00"), undefined);
+    assert.equal(getICD10Description("E11"), undefined);
+  });
+
+  it("does not resolve Object.prototype property names", () => {
+    for (const key of ["constructor", "toString", "__proto__"]) {
+      assert.equal(getICD10Description(key), undefined);
+    }
+  });
+});
+
+describe("hasICD10Code", () => {
+  it("is true for real codes in any supported format", () => {
+    assert.equal(hasICD10Code("A00.0"), true);
+    assert.equal(hasICD10Code(" a000 "), true);
+  });
+
+  it("is false for unknown codes, categories, and non-string input", () => {
+    assert.equal(hasICD10Code("Z999"), false);
+    assert.equal(hasICD10Code("E11"), false);
+    assert.equal(hasICD10Code(""), false);
+    assert.equal(hasICD10Code(null), false);
+  });
 });
 
 describe("normalizeICD10Code", () => {
@@ -75,9 +107,21 @@ describe("normalizeICD10Code", () => {
     assert.equal(normalizeICD10Code("a.0.0.1"), "A001");
   });
 
+  it("strips internal whitespace from pasted codes", () => {
+    assert.equal(normalizeICD10Code("A00. 1"), "A001");
+    assert.equal(normalizeICD10Code("A00\u00a0.1"), "A001");
+    assert.equal(getICD10Description("A00. 1"), getICD10Description("A001"));
+  });
+
   it("handles empty strings", () => {
     assert.equal(normalizeICD10Code(""), "");
     assert.equal(normalizeICD10Code("  "), "");
+  });
+
+  it("returns an empty string for non-string input", () => {
+    assert.equal(normalizeICD10Code(null), "");
+    assert.equal(normalizeICD10Code(undefined), "");
+    assert.equal(normalizeICD10Code(42), "");
   });
 });
 
@@ -88,6 +132,23 @@ describe("data integrity", () => {
 
   it("matches the code count declared in ICD10_CM_RELEASE", () => {
     assert.equal(Object.keys(icd10).length, ICD10_CM_RELEASE.codeCount);
+  });
+
+  it("uses only well-formed normalized codes", () => {
+    const malformed = Object.keys(icd10).filter(
+      (code) => !/^[A-Z][0-9A-Z]{2,6}$/.test(code),
+    );
+    assert.deepEqual(malformed, []);
+  });
+
+  it("has trimmed, non-empty descriptions", () => {
+    const bad = Object.entries(icd10).filter(
+      ([, description]) =>
+        typeof description !== "string" ||
+        description === "" ||
+        description !== description.trim(),
+    );
+    assert.deepEqual(bad, []);
   });
 });
 

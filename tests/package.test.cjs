@@ -55,6 +55,8 @@ describe("packaged package", () => {
       'if (typeof m.default !== "function") throw new Error("no default");' +
       'if (m.getICD10Description("A00.0") !== "Cholera due to Vibrio cholerae 01, biovar cholerae") throw new Error("bad lookup");' +
       'if (m.normalizeICD10Code(" a00.1 ") !== "A001") throw new Error("bad normalize");' +
+      'if (m.hasICD10Code("A00.0") !== true || m.hasICD10Code("Z999") !== false) throw new Error("bad hasICD10Code");' +
+      'if (require("@lowlysre/icd-10-cm/data/icd10.min.json").A000 !== "Cholera due to Vibrio cholerae 01, biovar cholerae") throw new Error("no data export");' +
       'if (require("@lowlysre/icd-10-cm/package.json").name !== "@lowlysre/icd-10-cm") throw new Error("no package.json export");';
     execFileSync(process.execPath, ["-e", script], {
       cwd: tempDir,
@@ -78,12 +80,13 @@ describe("packaged package", () => {
   it("type-checks a TS consumer against the published types", () => {
     fs.writeFileSync(
       path.join(tempDir, "consumer.ts"),
-      'import getICD10Description, { normalizeICD10Code, ensureICD10DatasetLoaded, ICD10_CM_RELEASE, type ICD10Dictionary } from "@lowlysre/icd-10-cm";\n' +
+      'import getICD10Description, { normalizeICD10Code, hasICD10Code, ensureICD10DatasetLoaded, ICD10_CM_RELEASE, type ICD10Dictionary } from "@lowlysre/icd-10-cm";\n' +
         'const d: string | undefined = getICD10Description("A00.0");\n' +
         'const n: string = normalizeICD10Code("a00.1");\n' +
+        'const h: boolean = hasICD10Code("A00.0");\n' +
         'const dict: ICD10Dictionary = ensureICD10DatasetLoaded({ A000: "x" });\n' +
         "const fy: number = ICD10_CM_RELEASE.fiscalYear;\n" +
-        "void d;\nvoid n;\nvoid dict;\nvoid fy;\n",
+        "void d;\nvoid n;\nvoid h;\nvoid dict;\nvoid fy;\n",
     );
     const tscJs = path.join(
       repoRoot,

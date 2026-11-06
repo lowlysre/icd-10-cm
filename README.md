@@ -27,7 +27,10 @@ npm install @lowlysre/icd-10-cm
 ## Usage
 
 ```ts
-import getICD10Description, { normalizeICD10Code } from "@lowlysre/icd-10-cm";
+import getICD10Description, {
+  hasICD10Code,
+  normalizeICD10Code,
+} from "@lowlysre/icd-10-cm";
 
 // Lookups normalize dots, casing, and whitespace automatically
 const description = getICD10Description("A00.0");
@@ -39,9 +42,16 @@ if (!maybeDescription) {
   // fallback logic here
 }
 
+// Or just check whether a code exists
+hasICD10Code("A00.0"); // true
+hasICD10Code("Z999"); // false
+
 // You can normalize a code explicitly if you store normalized keys elsewhere
 const normalized = normalizeICD10Code(" a00.1 "); // "A001"
 ```
+
+> [!NOTE]
+> The dataset holds complete codes only, the same set CMS lists in its code descriptions file. A category header that has child codes, such as `A00` or `E11`, isn't in it, so `hasICD10Code("E11")` is `false` and `getICD10Description("E11")` is `undefined`. `E11.9` is.
 
 CommonJS works too:
 
@@ -63,7 +73,7 @@ ICD10_CM_RELEASE.codeCount; // 74879
 
 ### Using with AI
 
-- Grounding AI output. Language models describe ICD-10-CM codes from memory, so they get laterality and severity wrong and invent descriptions for codes that don't exist. Check each model-produced code against the official set before showing or storing it.
+- Grounding AI output. Language models describe ICD-10-CM codes from memory, so they get laterality and severity wrong and invent descriptions for codes that don't exist. Check each model-produced code against the official set before showing or storing it. Non-string input, such as a missing tool argument, returns `undefined` instead of throwing.
 - Agent tools. Expose `getICD10Description` as a tool or function call, so an agent reads the official description instead of recalling one.
 
 ```ts
@@ -85,7 +95,8 @@ const checked = modelCodes.map((code) => ({
 ## API
 
 - `getICD10Description(code)` (also the default export) returns the description for a code, or `undefined` when the code isn't in the bundled release. Input is normalized first.
-- `normalizeICD10Code(code)` trims whitespace, strips dots, and uppercases, matching the dataset keys.
+- `hasICD10Code(code)` returns `true` when the code is in the bundled release.
+- `normalizeICD10Code(code)` strips whitespace and dots and uppercases, matching the dataset keys. Non-string input returns `""`.
 - `ICD10_CM_RELEASE` is a frozen object with the bundled release's `fiscalYear`, `effectiveDate`, and `codeCount`.
 - `ensureICD10DatasetLoaded(data)` returns `data`, or throws when it's empty or missing.
 - Types: `ICD10Dictionary`, `ICD10CMRelease`.
@@ -106,6 +117,12 @@ codes["A000"]; // "Cholera due to Vibrio cholerae 01, biovar cholerae"
 
 Pin the major version in the URL so the code set only changes when you choose to upgrade.
 
+Bundlers, edge runtimes, and other environments without file system access can import the same file instead of using the lookup functions. The JSON file is exported from the package:
+
+```js
+const codes = require("@lowlysre/icd-10-cm/data/icd10.min.json");
+```
+
 ## Versioning
 
 Each new ICD-10-CM release (the annual October 1 update, and any April 1 update) ships as a new major version. A release can delete or redefine codes, so a caret range like `^3.0.0` never silently changes the code set underneath an app. Upgrade the major version deliberately to pick up a new year.
@@ -124,10 +141,11 @@ See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for setup and the yearly data upd
 
 ## Versions
 
+- v3.2.0 - `hasICD10Code` helper, non-string input returns `undefined` instead of throwing, lookups ignore internal whitespace, `data/icd10.min.json` exported, stricter `parse-icd` validation, README note that category headers aren't in the dataset
 - v3.1.1 - README AI use cases (output grounding, agent tools), closed-loop offline use, `ai`, `llm`, and `offline` npm keywords
 - v3.1.0 - `ICD10_CM_RELEASE` export with the bundled fiscal year, effective date, and code count. Node.js 22+ declared in `engines`, `package.json` exported, expanded npm keywords. API, CDN, and versioning docs, plus contributing and security guides
 - v3.0.0 - Data updated to the October 1, 2026 ICD-10-CM release (74,879 codes, from the FY2027 set)
-- v2.0.0 - Data updated to the April 1, 2026 ICD-10-CM release (74,719 codes, from the FY2024 set). TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
+- v2.0.0 - Data updated to the April 1, 2026 ICD-10-CM release (74,719 codes, from the FY2026 set). TypeScript 7 (native compiler) toolchain, ESLint replaced with oxlint + Prettier, dropped tsup for plain tsc (zero-bundler dual ESM/CJS), dataset shipped once and lazy-loaded (~50% smaller install, faster imports), fixed broken `require()` entry point
 - v1.1.5 - Dependency and toolchain maintenance
 - v1.1.0 - Migrated tests from Jest to Node's built-in test runner, TypeScript 6 toolchain
 - v1.0.3 - Dependency maintenance, CODEOWNERS

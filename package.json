@@ -1,6 +1,6 @@
 {
   "name": "@lowlysre/icd-10-cm",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "FY2027 ICD-10-CM diagnosis codes and descriptions (CDC/NCHS, effective October 1, 2026) with TypeScript types and zero dependencies",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -24,6 +24,7 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./data/icd10.min.json": "./data/icd10.min.json",
     "./package.json": "./package.json"
   },
   "sideEffects": false,

@@ -2,6 +2,7 @@ import { getICD10Description } from "./index.cjs";
 
 export {
   getICD10Description,
+  hasICD10Code,
   ensureICD10DatasetLoaded,
   normalizeICD10Code,
   ICD10_CM_RELEASE,
