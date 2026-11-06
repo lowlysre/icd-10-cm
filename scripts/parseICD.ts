@@ -15,7 +15,7 @@ const outputFilePath = path.join(
 );
 
 const codePattern = /^[A-Z][0-9A-Z]{2,6}$/;
-const linePattern = /^(\S+)\s+(.+?)\s*$/;
+const linePattern = /^(\S+)\s+(\S.*?)\s*$/;
 
 const parseICDFile = (content: string): ICD10Dictionary => {
   const dictionary: ICD10Dictionary = {};
