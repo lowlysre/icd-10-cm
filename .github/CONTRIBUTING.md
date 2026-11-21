@@ -28,7 +28,7 @@ CDC/NCHS publishes a new code set annually (effective October 1) and occasionall
 2. Extract `icd10cm_codes_<year>.txt` and save it as `scripts/icd10cm.txt` (format: code, whitespace, description per line)
 3. Run `npm run parse-icd` to regenerate the data in both packages; the script needs Node.js 22 or later for `--experimental-strip-types`. A new ICD-10-CM release changes `packages/icd-10-cm-es/data/not-in-icd10cm.min.json`, the list of CIE-10-ES codes the release doesn't have
 4. Update `ICD10_CM_RELEASE` in `packages/icd-10-cm/src/index.cts` with the new fiscal year, effective date, and code count, and `icd10cmFiscalYear` in `CIE10_ES_RELEASE` in `packages/icd-10-cm-es/src/index.cts`; `npm test` fails until they match the regenerated data
-5. Update the release in the `description` and `keywords` fields of `packages/icd-10-cm/package.json`, in both package READMEs, and in the root [README](../README.md). The parse script prints the coverage numbers for the Spanish README
+5. Update the release in the `description` and `keywords` fields of `packages/icd-10-cm/package.json` and in both package READMEs. The parse script prints the coverage numbers for the Spanish README
 6. Check the Ministerio de Sanidad's [classifications page](https://www.sanidad.gob.es/estadEstudios/estadisticas/normalizacion/home.htm) for a newer CIE-10-ES edition or reference table, and follow the steps below if there is one
 7. Run `npm test`
 8. Mark the commit as a breaking change, as described under [Releases](#releases)
@@ -41,7 +41,7 @@ The Ministerio de Sanidad has published a new CIE-10-ES edition every two years,
 2. Save it as `scripts/cie10es.xlsx`
 3. Run `npm run parse-icd`. It reads the sheet whose name ends in "Finales" and prints the table's date
 4. Update `CIE10_ES_RELEASE` in `packages/icd-10-cm-es/src/index.cts` with the edition, its year and effective date, the table's date, and the code count
-5. Update the edition in the `description` field of `packages/icd-10-cm-es/package.json`, in the package's README, and in the root [README](../README.md)
+5. Update the edition in the `description` field of `packages/icd-10-cm-es/package.json` and in the package's README
 6. Run `npm test`
 7. Mark the commit as a breaking change, as described under [Releases](#releases)
 
