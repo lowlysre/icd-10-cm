@@ -14,7 +14,7 @@ ICD-10-CM diagnosis codes and descriptions as zero-dependency data packages, typ
 | [@lowlysre/icd-10-cm](packages/icd-10-cm)       | The current ICD-10-CM codes and their English descriptions, from the CDC               |
 | [@lowlysre/icd-10-cm-es](packages/icd-10-cm-es) | The CIE-10-ES Spanish descriptions for those codes, from Spain's Ministerio de Sanidad |
 
-The packages don't depend on each other. Install one, or install both to show Spanish where it exists and English everywhere else. Each package's README covers its usage, API, data source, and the release it bundles.
+The packages don't depend on each other. Install one, or install both to show Spanish where it exists and English everywhere else. Each package's README covers its usage, data source, and the release it bundles, and links to its API reference.
 
 ## Contributing
 
