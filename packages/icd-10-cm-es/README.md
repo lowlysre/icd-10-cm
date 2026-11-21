@@ -87,8 +87,8 @@ CIE10_ES_RELEASE.icd10cmFiscalYear; // 2027
 
 ## Reference
 
-- [API](https://github.com/lowlysre/icd-10-cm/blob/main/packages/icd-10-cm-es/docs/api.md): every export and its types
-- [Raw data via CDN](https://github.com/lowlysre/icd-10-cm/blob/main/packages/icd-10-cm-es/docs/cdn.md): fetching or importing the dataset JSON without the lookup functions
+- [API](https://github.com/lowlysre/icd-10-cm/blob/main/packages/icd-10-cm-es/docs/api.md), every export and its types
+- [Raw data via CDN](https://github.com/lowlysre/icd-10-cm/blob/main/packages/icd-10-cm-es/docs/cdn.md), fetching or importing the dataset JSON without the lookup functions
 
 The package supports Node.js 22 or later.
 
