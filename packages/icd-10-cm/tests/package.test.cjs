@@ -88,8 +88,11 @@ describe("packaged package", () => {
         "const fy: number = ICD10_CM_RELEASE.fiscalYear;\n" +
         "void d;\nvoid n;\nvoid h;\nvoid dict;\nvoid fy;\n",
     );
+    // npm hoists workspace dev dependencies to the repo root.
     const tscJs = path.join(
       repoRoot,
+      "..",
+      "..",
       "node_modules",
       "typescript",
       "lib",

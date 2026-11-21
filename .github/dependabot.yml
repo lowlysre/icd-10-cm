@@ -23,3 +23,18 @@ updates:
         patterns:
           - "oxlint"
           - "prettier"
+
+  # Release tooling for the publish workflow
+  - package-ecosystem: "npm"
+    directory: "/.github/release"
+    schedule:
+      interval: "weekly"
+    groups:
+      release:
+        patterns:
+          - "*"
+    ignore:
+      # v10 needs conventional-changelog-writer 9, and semantic-release 25
+      # ships writer 8
+      - dependency-name: "conventional-changelog-conventionalcommits"
+        update-types: ["version-update:semver-major"]

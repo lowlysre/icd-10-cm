@@ -1,52 +1,66 @@
 import fs from "fs";
 import path from "path";
+import { codesMissingFrom, parseCIE10ESRows, parseICDFile } from "./parsers.ts";
+import { listXlsxSheets, readXlsxSheet } from "./xlsx.ts";
 
-interface ICD10Dictionary {
-  [code: string]: string;
-}
+const packagesDir = path.join(import.meta.dirname, "..", "packages");
 
-const filePath = path.join(import.meta.dirname, "icd10cm.txt");
-const fileContent = fs.readFileSync(filePath, "utf-8");
-const outputFilePath = path.join(
-  import.meta.dirname,
-  "..",
+const writeJson = (file: string, value: unknown): void => {
+  fs.writeFileSync(file, JSON.stringify(value), "utf-8");
+};
+
+// ICD-10-CM, from the CDC text file
+const icdDictionary = parseICDFile(
+  fs.readFileSync(path.join(import.meta.dirname, "icd10cm.txt"), "utf-8"),
+);
+const icdOutputPath = path.join(
+  packagesDir,
+  "icd-10-cm",
   "data",
   "icd10.min.json",
 );
-
-const codePattern = /^[A-Z][0-9A-Z]{2,6}$/;
-const linePattern = /^(\S+)\s+(\S.*?)\s*$/;
-
-const parseICDFile = (content: string): ICD10Dictionary => {
-  const dictionary: ICD10Dictionary = {};
-
-  for (const [index, line] of content.split(/\r?\n/).entries()) {
-    if (line.trim() === "") {
-      continue;
-    }
-
-    const match = linePattern.exec(line);
-    const [, code, description] = match ?? [];
-
-    if (!code || !description || !codePattern.test(code)) {
-      throw new Error(
-        `Line ${index + 1} is not "<code> <description>": ${line}`,
-      );
-    }
-
-    if (Object.hasOwn(dictionary, code)) {
-      throw new Error(`Line ${index + 1} repeats code ${code}`);
-    }
-
-    dictionary[code] = description;
-  }
-
-  return dictionary;
-};
-
-// Output
-const icdDictionary = parseICDFile(fileContent);
-fs.writeFileSync(outputFilePath, JSON.stringify(icdDictionary), "utf-8");
+writeJson(icdOutputPath, icdDictionary);
 console.log(
-  `Wrote ${Object.keys(icdDictionary).length} codes to ${outputFilePath}`,
+  `Wrote ${Object.keys(icdDictionary).length} codes to ${icdOutputPath}`,
+);
+
+// CIE-10-ES, from the Ministerio de Sanidad reference table
+const workbook = fs.readFileSync(
+  path.join(import.meta.dirname, "cie10es.xlsx"),
+);
+const sheetNames = listXlsxSheets(workbook);
+const finalCodesSheet = sheetNames.find((name) => /\bFinales$/.test(name));
+
+if (!finalCodesSheet) {
+  throw new Error(
+    `cie10es.xlsx has no final-codes sheet, found: ${sheetNames.join(", ")}`,
+  );
+}
+
+const cieDictionary = parseCIE10ESRows(
+  readXlsxSheet(workbook, finalCodesSheet),
+);
+const cieDataDir = path.join(packagesDir, "icd-10-cm-es", "data");
+const cieOutputPath = path.join(cieDataDir, "cie10es.min.json");
+writeJson(cieOutputPath, cieDictionary);
+console.log(
+  `Wrote ${Object.keys(cieDictionary).length} codes to ${cieOutputPath}`,
+);
+
+// The CIE-10-ES codes that the bundled ICD-10-CM release doesn't have. The
+// Spanish lookup answers for none of them.
+const notInICD10CM = codesMissingFrom(cieDictionary, icdDictionary);
+const notInICD10CMPath = path.join(cieDataDir, "not-in-icd10cm.min.json");
+writeJson(notInICD10CMPath, notInICD10CM);
+console.log(`Wrote ${notInICD10CM.length} codes to ${notInICD10CMPath}`);
+
+// The intro sheet carries the table's date as an Excel serial day number.
+const intro = readXlsxSheet(workbook, sheetNames[0] as string);
+const serial = Number(intro.find((row) => row.C?.startsWith("Fecha"))?.E);
+const sourceDate = new Date(Date.UTC(1899, 11, 30 + serial))
+  .toISOString()
+  .slice(0, 10);
+console.log(
+  `CIE-10-ES source sheet "${finalCodesSheet}", dated ${sourceDate}: ` +
+    `${codesMissingFrom(icdDictionary, cieDictionary).length} ICD-10-CM codes have no Spanish description`,
 );

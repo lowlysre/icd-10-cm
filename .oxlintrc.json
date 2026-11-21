@@ -7,5 +7,5 @@
   "rules": {
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
   },
-  "ignorePatterns": ["dist/**", "coverage/**", "data/**"]
+  "ignorePatterns": ["**/dist/**", "**/coverage/**", "**/data/**"]
 }
