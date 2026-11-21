@@ -3,3 +3,4 @@ coverage/
 data/
 package-lock.json
 scripts/icd10cm.txt
+scripts/cie10es.xlsx

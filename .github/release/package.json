@@ -1,0 +1,10 @@
+{
+  "name": "icd-10-cm-release-tooling",
+  "private": true,
+  "description": "Release tooling for the publish workflow, kept out of the workspace so tests and builds don't install it",
+  "devDependencies": {
+    "@anolilab/multi-semantic-release": "^4.6.3",
+    "conventional-changelog-conventionalcommits": "^10.4.1",
+    "semantic-release": "^25.0.9"
+  }
+}

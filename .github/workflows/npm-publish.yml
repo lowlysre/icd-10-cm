@@ -1,11 +1,10 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+# Runs the tests, then versions and publishes each workspace package with
+# semantic-release. A package is released from the commits that touched its
+# folder since its last release tag.
 
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
   workflow_dispatch:
 
 permissions: {}
@@ -21,16 +20,17 @@ jobs:
       contents: read # to check out the repository
 
   publish-npm:
-    name: Publish to npm
+    name: Release and publish to npm
     needs: test
     runs-on: ubuntu-slim
     permissions:
-      contents: read # to check out the repository
+      contents: write # to push release tags and create GitHub releases
       id-token: write # for npm trusted publishing (OIDC) and provenance
       attestations: write # to generate build provenance attestations
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          fetch-depth: 0 # semantic-release reads history back to each package's last release tag
           persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
@@ -40,4 +40,8 @@ jobs:
       - uses: lowlydba/sustainable-npm@4cc1da285e5a589a7b3816122f791c21ec6ff3e6 # v4.0.0
       - run: npm ci
       - run: npm run build
-      - run: npm publish --access public
+      - run: npm ci
+        working-directory: .github/release
+      - run: node .github/release/node_modules/@anolilab/multi-semantic-release/dist/bin/cli.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
