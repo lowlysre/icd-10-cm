@@ -1,5 +1,9 @@
 # icd-10-cm-es
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/lowlysre/icd-10-cm/main/assets/hero-es.png" alt="icd-10-cm-es hero" width="640">
+</p>
+
 [![NPM Version](https://img.shields.io/npm/v/%40lowlysre%2Ficd-10-cm-es)](https://www.npmjs.com/package/@lowlysre/icd-10-cm-es)
 [![Test](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlysre/icd-10-cm/actions/workflows/test.yml)
 [![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
