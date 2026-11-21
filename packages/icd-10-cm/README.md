@@ -92,36 +92,12 @@ const checked = modelCodes.map((code) => ({
 // ]
 ```
 
-## API
+## Reference
 
-- `getICD10Description(code)` (also the default export) returns the description for a code, or `undefined` when the code isn't in the bundled release. Input is normalized first.
-- `hasICD10Code(code)` returns `true` when the code is in the bundled release.
-- `normalizeICD10Code(code)` strips whitespace and dots and uppercases, matching the dataset keys. Non-string input returns `""`.
-- `ICD10_CM_RELEASE` is a frozen object with the bundled release's `fiscalYear`, `effectiveDate`, and `codeCount`.
-- `ensureICD10DatasetLoaded(data)` returns `data`, or throws when it's empty or missing.
-- Types: `ICD10Dictionary`, `ICD10CMRelease`.
+- [API](https://github.com/lowlysre/icd-10-cm/blob/main/packages/icd-10-cm/docs/api.md): every export and its types
+- [Raw data via CDN](https://github.com/lowlysre/icd-10-cm/blob/main/packages/icd-10-cm/docs/cdn.md): fetching or importing the dataset JSON without the lookup functions
 
 The package supports Node.js 22 or later.
-
-## Raw data via CDN
-
-The dataset is a flat JSON object of normalized code to description. Browsers and other runtimes can fetch it straight from jsDelivr without installing anything:
-
-```js
-const res = await fetch(
-  "https://cdn.jsdelivr.net/npm/@lowlysre/icd-10-cm@3/data/icd10.min.json",
-);
-const codes = await res.json();
-codes["A000"]; // "Cholera due to Vibrio cholerae 01, biovar cholerae"
-```
-
-Pin the major version in the URL so the code set only changes when you choose to upgrade.
-
-Bundlers, edge runtimes, and other environments without file system access can import the same file instead of using the lookup functions. The JSON file is exported from the package:
-
-```js
-const codes = require("@lowlysre/icd-10-cm/data/icd10.min.json");
-```
 
 ## Spanish descriptions
 
@@ -146,10 +122,6 @@ Minor and patch versions contain code and tooling changes only; the data stays t
 ICD-10-CM is maintained by the CDC's National Center for Health Statistics (NCHS), which publishes the code files for free public use: [ICD-10-CM files](https://www.cdc.gov/nchs/icd/icd-10-cm/files.html). The MIT license covers this package's code.
 
 This package is not affiliated with or endorsed by the CDC, NCHS, or CMS.
-
-## Contributing
-
-See [CONTRIBUTING.md](https://github.com/lowlysre/icd-10-cm/blob/main/.github/CONTRIBUTING.md) for setup and the yearly data update steps.
 
 ## Versions
 
