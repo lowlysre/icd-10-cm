@@ -47,7 +47,7 @@ The Ministerio de Sanidad has published a new CIE-10-ES edition every two years,
 
 ## Releases
 
-The publish workflow runs by hand from the Actions tab. It uses [semantic-release](https://semantic-release.gitbook.io/semantic-release/) with [@anolilab/multi-semantic-release](https://github.com/anolilab/semantic-release/tree/main/packages/multi-semantic-release) to version and publish each package on its own.
+The publish workflow runs on every push to `main`, and by hand from the Actions tab. It uses [semantic-release](https://semantic-release.gitbook.io/semantic-release/) with [@anolilab/multi-semantic-release](https://github.com/anolilab/semantic-release/tree/main/packages/multi-semantic-release) to version and publish each package on its own.
 
 - A package is released from the commits that touched its folder since its last release. A commit that touches only files outside `packages/` releases nothing
 - The commit message sets the version bump, following [Conventional Commits](https://www.conventionalcommits.org/): `fix:` is a patch, `feat:` is a minor, and a `!` after the type or a `BREAKING CHANGE:` footer is a major. Pull requests are squash-merged, so the pull request title is the commit message
