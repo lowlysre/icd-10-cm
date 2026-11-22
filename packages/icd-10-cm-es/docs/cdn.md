@@ -10,7 +10,7 @@ The package exports two JSON files, and browsers and other runtimes can fetch th
 The lookup functions apply the second file for you. Reading the raw data, apply it yourself:
 
 ```js
-const base = "https://cdn.jsdelivr.net/npm/@lowlysre/icd-10-cm-es@1/data";
+const base = "https://cdn.jsdelivr.net/npm/@lowlysre/icd-10-cm-es@main/data";
 const codes = await (await fetch(`${base}/cie10es.min.json`)).json();
 const skip = new Set(
   await (await fetch(`${base}/not-in-icd10cm.min.json`)).json(),
