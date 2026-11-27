@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
-    "oxlint": "^1.0.0",
+    "oxlint": "^1.95.0",
     "prettier": "^3.3.2",
     "typescript": "^7.0.2"
   }
